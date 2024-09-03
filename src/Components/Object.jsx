@@ -1,6 +1,6 @@
 import { TrackballControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import CosAnimatedObject from "./cosAnimatedObject";
+import CosAnimatedObject from "./CosAnimatedObject";
 
 const Object = () => {
     return (
