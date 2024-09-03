@@ -3,6 +3,7 @@ import useAuthStore from "../Stores/use-auth-store";
 import "../Styles/Login.css";
 import userDAO from "../Dao/userDAO";
 import { useNavigate } from "react-router-dom";
+import Object from "./Object";
 
 const Login = () => {
   const {
@@ -24,14 +25,14 @@ const Login = () => {
     if (user) {
       const newUser = {
         email: user.email,
-        name: user.displayName || "", 
-        photo: user.photoURL || "", 
+        name: user.displayName || "",
+        photo: user.photoURL || "",
       };
 
       const checkUserExistsAndCreate = async () => {
-        const existingUser = await userDAO.getUserByEmail(user.email); 
+        const existingUser = await userDAO.getUserByEmail(user.email);
         if (!existingUser) {
-          await userDAO.createUser(newUser); 
+          await userDAO.createUser(newUser);
         }
         navigate(""); //Aqui podemos redirigir a otro componente (la pagina donde estará el objeto 3D -> Home)
       };
@@ -69,6 +70,7 @@ const Login = () => {
     return <p className="loading-text">Cargando...</p>;
   }
 
+  //Redireccionamiento a Pagina Principal
   return (
     <div className="container-login">
       {user ? (
@@ -76,6 +78,9 @@ const Login = () => {
           <p className="welcome-text">
             Bienvenido, {user.displayName || user.email}
           </p>
+
+          <Object />
+
           <button className="button-logout" onClick={handleLogout}>
             Cerrar sesión
           </button>
