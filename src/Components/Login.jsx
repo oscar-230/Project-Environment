@@ -4,6 +4,7 @@ import "../Styles/Login.css";
 import userDAO from "../Dao/userDAO";
 import { useNavigate } from "react-router-dom";
 import Object from "./Object";
+import Home from "./Home";
 
 const Login = () => {
   const {
@@ -75,17 +76,10 @@ const Login = () => {
     <div className="container-login">
       {user ? (
         <>
-          <p className="welcome-text">
-            Bienvenido, {user.displayName || user.email}
-          </p>
-
-          <Object />
-
-          <button className="button-logout" onClick={handleLogout}>
-            Cerrar sesión
-          </button>
+          <Home onLogout={handleLogout} /> 
         </>
       ) : (
+        <main className="Container">
         <div className="wrapper">
           <form action="" className="form" onSubmit={handleEmailPasswordAction}>
             <h1 className="title">{isRegister ? "Registro" : "Inicio"}</h1>
@@ -138,6 +132,7 @@ const Login = () => {
             </p>
           </div>
         </div>
+        </main>
       )}
     </div>
   );
