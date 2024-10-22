@@ -1,186 +1,126 @@
-.container-login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* height: 100vh; */
-}
-
-.welcome-text {
-    font-size: x-large;
-    color: #ffffff;
-    margin-bottom: 30px;
-}
-
-.loading-text {
-    font-size: medium;
-    color: #666;
-}
-
-.button-logout {
-    margin-top: 1rem;
-    padding: 10px 20px;
-    font-size: medium;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #fff;
-}
-
-.Container {
-    width: 100vw;
+.container {
+    width: 100vw; 
     height: 100vh;
-    background: #081b29;
-    display: grid;
-    justify-content: center;
-    align-content: center;
+    background-image: url("public/imgs/water.jpg");
+    background-size: cover; 
+    background-position: center;
+    filter: hue-rotate(15deg);
 }
 
-::-webkit-input-placeholder{
-    color: #eee;
-}
-
-.wrapper {
-    position: relative;
-    width: 800px;
-    height: 65vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border: 3px solid #00ffff;
-    box-shadow: 0 0 50px 0 #00a6bc;
-}
-
-.banner {
+.login-container {
+    display: flex; /* Asegúrate de que sea flex */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 450px;
-    height: 100%;
-    background: linear-gradient(to right, #0ef, #c800ff);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 60% 100%);
-    padding-right: 70px;
-    text-align: right;
-    display: flex;
-    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5); /* Sombra */
+    border-radius: 20px; /* Bordes redondeados */
+}
+
+.logo {
+    display: flex; 
     justify-content: center;
-    align-items: flex-end;
+
 }
 
-.wel-text{
-    font-size: 40px;
-    margin-top: -50px;
-    line-height: 50px;
-}
-
-.para{
-    margin-top: 10px;
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: 1px;
-}
-
-.form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.logo img {
+    width: 80px;
+    height: auto;
 }
 
 .title {
-    font-size: 35px;
-}
-
-.inp{
-    padding-bottom: 10px;
-    border-bottom: 2px solid #eee;
-}
-
-.input{
-    border: none;
-    outline: none;
-    background: none;
-    width: 260px;
-    margin-top: 40px;
-    padding-right: 10px;
-    font-size: 17px;
-    color: #0ef;
-}
-
-.submit {
-    border: none;
-    outline: none;
-    width: 288px;
-    margin-top: 25px;
-    padding: 10px 0;
+    color: #fff;
     font-size: 20px;
-    border-radius: 40px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    background: linear-gradient(45deg, #0ef, #c800ff);
+    margin-top: 40px;
 }
 
-.footer {
+.login-wrapper {
+    width: 230px;
+    margin: 0, auto;
+}
+
+.input-container .email {
     margin-top: 30px;
-    letter-spacing: 0.5px;
-    font-size: 14px;
 }
 
-.link {
-    color: #0ef;
-    text-decoration: none;
+.login-wrapper .input-container h2 {
+    font-size: 12px;
+    color: #fff;
 }
 
-.google {
-    border: none;
-    outline: none;
-    width: 100px;
-    margin-top: 25px;
+.login-wrapper .input-container .input {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    padding: 10px 0; /* Espacio interno */
+    border: none; /* Sin borde */
+    margin-bottom: 5px;
+    border-bottom: 1px solid #fff;
+    border-radius: 5px; /* Bordes redondeados */
+    background: white; /* Fondo claro con opacidad */
+    color: black ; /* Color del texto */
+    font-size: 13px; /* Tamaño de fuente */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+.login-wrapper .input-container .input::placeholder {
+    padding-left: 20px;
+    color: rgb(188, 190, 192)
+}
+
+.login-button{
+    width: 100%;
     padding: 10px 0;
-    font-size: 15px;
-    border-radius: 50px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    background: linear-gradient(45deg, #0ef, #c800ff);
-}
-
-.facebook {
+    margin-top: 20px;
     border: none;
-    outline: none;
-    width: 100px;
-    margin-top: 5px;
-    padding: 10px 0;
-    font-size: 15px;
-    border-radius: 50px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    background: linear-gradient(45deg, #0ef, #c800ff);
-}
-
-.button-login {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    width: 250px; 
-    margin-top: 25px; 
+    border-radius: 15px;
+    background: #003465;
+    color: #fff;
+    
 }
 
 .text-login {
+    color: #fff;
+    font-size: 10px;
+    text-align: center;
     margin-top: 20px;
-    letter-spacing: 0.5px;
-    font-size: 14px;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
-canvas {
-    width: 100vw;
-    height: 60vh;
+.footer {
+    background: none;
+    font-size: 10px;
+}
+
+.socials-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.google-register img {
+    width: 20px;
+    scale: 150%;
+}
+
+.facebook-register img {
+    width: 20px;
+    scale: 90%;
+}
+
+.socials-buttons button {
+    flex: 1; 
+    margin: 10px 7px; /* Espacio entre botones */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border: none;
+    background-color: #fff; /* Fondo blanco o el que prefieras */
+    color: #333; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
 }

@@ -1,8 +1,8 @@
-// Home.jsx
-import React from "react";
+import React, { useCallback } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import "../Styles/Home.css";
+import "/src/Styles/Home.css";
+import { useNavigate } from "react-router-dom";
 
 const EarthSphere = () => {
   return (
@@ -18,6 +18,13 @@ const EarthSphere = () => {
 };
 
 const Home = ({ onLogout }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = useCallback(async () => {
+    await onLogout();
+    navigate("/login"); // Redirigir a la página de login
+  }, [onLogout, navigate]);
+
   return (
     <div className="home-container">
       <header className="navbar">
@@ -31,7 +38,7 @@ const Home = ({ onLogout }) => {
           <a href="#quizz">Quizz</a>
           <a href="#options">Options</a>
         </nav>
-        <button className="logout-button" onClick={onLogout}>Logout</button>
+        <button className="logout-button" onClick={handleLogout}>Logout</button>
       </header>
 
       <main className="main-content">
