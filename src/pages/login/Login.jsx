@@ -117,10 +117,10 @@ const Login = () => {
           </div>
 
           <p className="footer">
-            {isRegister ? "¿Ya tienes una cuenta?" : "¿Don´t have account yet?"}
+            {isRegister ? "¿Have account?" : "¿Don´t have account yet?"}
             <a
               href="#"
-              className="register-link"
+              className="register-login-link"
               onClick={() => setIsRegister((prev) => !prev)}
             >
               {isRegister ? "Inicia sesión" : " Register for free"}

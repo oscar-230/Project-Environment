@@ -8,19 +8,19 @@
 }
 
 .login-container {
-    display: flex; /* Asegúrate de que sea flex */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
     position: absolute;
     top: 50%;
     left: 50%;
     width: 350px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    background: rgba(255, 255, 255, 0.1); /* Efecto de fondo borroso */
+    backdrop-filter: blur(5px); 
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5); /* Sombra */
-    border-radius: 20px; /* Bordes redondeados */
+    border-radius: 20px; 
 }
 
 .logo {
@@ -55,21 +55,26 @@
 }
 
 .login-wrapper .input-container .input {
-    width: 100%; /* Ajusta el ancho al 100% del contenedor */
-    padding: 10px 0; /* Espacio interno */
-    border: none; /* Sin borde */
+    width: 100%; 
+    padding: 10px 0; 
+    border: none;
     margin-bottom: 5px;
     border-bottom: 1px solid #fff;
-    border-radius: 5px; /* Bordes redondeados */
-    background: white; /* Fondo claro con opacidad */
-    color: black ; /* Color del texto */
-    font-size: 13px; /* Tamaño de fuente */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    border-radius: 5px; 
+    background: white; 
+    color: black ; 
+    font-size: 13px; 
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.login-wrapper .input-container .input:focus {
+    text-indent: 20px;
 }
 
 .login-wrapper .input-container .input::placeholder {
     padding-left: 20px;
-    color: rgb(188, 190, 192)
+    color: rgb(188, 190, 192);
 }
 
 .login-button{
@@ -80,8 +85,15 @@
     border-radius: 15px;
     background: #003465;
     color: #fff;
-    
+    cursor: pointer;
+    font-weight: bold;
+    transition:  background-color 0.3s ease, transform 0.3s ease;
 }
+
+.login-button:hover { 
+    transform: scale(1.05);  /* Se aumenta el tamañod del boton */
+}
+
 
 .text-login {
     color: #fff;
@@ -113,14 +125,33 @@
 
 .socials-buttons button {
     flex: 1; 
-    margin: 10px 7px; /* Espacio entre botones */
+    margin: 10px 7px; 
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5px;
     border: none;
-    background-color: #fff; /* Fondo blanco o el que prefieras */
-    color: #333; /* Color del texto */
-    border-radius: 5px; /* Bordes redondeados */
+    background-color: #fff; 
+    color: #333; 
+    border-radius: 5px; 
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animación
+    al pasar el raton por los los botones */
+}
+
+.socials-buttons button:hover { 
+    transform: scale(1.15);  /* Se aumenta el tamañod del boton */
+}
+
+.register-login-link {
+  text-decoration: none;  
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.register-login-link:hover {
+    transform: scale(1.02);
+    color: #0A4E70;
 }
