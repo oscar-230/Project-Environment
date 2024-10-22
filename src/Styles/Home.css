@@ -44,7 +44,7 @@ body {
 }
 
 .navbar nav a.active {
-  background-color: rgba(200, 200, 200, 0.5); 
+  background-color: rgba(200, 200, 200, 0.5);
   color: #029BE5;
 }
 
@@ -215,8 +215,14 @@ body {
 }
 
 .footer-right a {
+  text-decoration: none;
   margin: 0 1rem;
   color: #ffffff;
   font-size: 16px;
   font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.footer-right a:hover {
+  color: #c9c2c2;
 }

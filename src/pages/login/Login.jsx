@@ -116,7 +116,7 @@ const Login = () => {
 
           </div>
 
-          <p className="footer">
+          <p className="login-footer">
             {isRegister ? "¿Have account?" : "¿Don´t have account yet?"}
             <a
               href="#"

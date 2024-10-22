@@ -102,9 +102,13 @@
     margin-top: 20px;
 }
 
-.footer {
+.login-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
     background: none;
     font-size: 10px;
+    color: #fff;
 }
 
 .socials-buttons {
