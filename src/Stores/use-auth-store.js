@@ -23,7 +23,7 @@ const useAuthStore = create((set) => ({
         });
     },
 
-    logout: async() => {
+    logout: async () => {
         await signOut(auth)
         .then(()=>{
             set({ user: null });
