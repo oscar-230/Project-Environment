@@ -7,7 +7,7 @@ const Navbar = ({ onLogout }) => {
   
   const handleLogout = async () => {
     await onLogout();
-    navigate("/login"); // Redirigir a la página de login
+    navigate("/"); // Redirigir a la página de login
   };
 
   return (

@@ -85,7 +85,7 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <i className="fa-solid fa-user"></i>
+            {/*<i className="fa-solid fa-user"></i>*/}
           </div>
           <div className="input-container">
             <h2>Password</h2>
@@ -97,7 +97,7 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <i className="fa-solid fa-lock"></i>
+            {/* <i className="fa-solid fa-lock"></i> */}
           </div>
           <button type="submit" className="login-button">
             {isRegister ? "Registrarse" : "Iniciar sesión"}
