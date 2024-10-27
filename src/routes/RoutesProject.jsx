@@ -10,7 +10,7 @@ const RoutesProject = ()  => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<Login />} />
                 <Route path="/home" element={<Home onLogout={logout}/>} />
                 <Route path="/problem" element={<Problem onLogout={logout} />} /> 
             </Routes>
