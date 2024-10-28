@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 const Earth = (props) => {
-  const { nodes, materials } =  useGLTF("models/earth.glb");
+  const { nodes, materials } =  useGLTF("models/Earth.glb");
 
   return (
     <group {...props} dispose={null}>

@@ -1,7 +1,7 @@
 .container {
     width: 100vw; 
     height: 100vh;
-    background-image: url("public/imgs/water.jpg");
+    background-image: url("/imgs/water.jpg");
     background-size: cover; 
     background-position: center;
     filter: hue-rotate(15deg);

@@ -9,25 +9,16 @@ import { useNavigate } from "react-router-dom";
 import Earth from "./models-3d/Earth.jsx";
 import Floor from "./models-3d/Floor.jsx";
 
-/* const EarthSphere = () => {
-  return (
-    <mesh castShadow receiveShadow>
-      <sphereGeometry args={[2, 64, 64]} />
-      <meshStandardMaterial color="#1e5ece" />
-      <mesh>
-        <sphereGeometry args={[2.01, 64, 64]} />
-        <meshStandardMaterial color="#4b88f3" />
-      </mesh>
-    </mesh>
-  );
-}; */
-
 const Home = ({ onLogout }) => {
   const navigate = useNavigate();
   const handleLogout = useCallback(async () => {
     await onLogout();
     navigate("/login"); // Redirigir a la página de login
   }, [onLogout, navigate]);
+
+  const handleFindOut = () => {
+    navigate("/problem"); // Redirigir a la página de Problem
+  };
 
   return (
     <div className="home-container">
@@ -44,7 +35,7 @@ const Home = ({ onLogout }) => {
             ¿Sabías que más de 2 mil millones de personas en el mundo no tienen
             acceso a <br /> agua potable segura?
           </p>
-          <button className="find-out-button">Find out</button>
+          <button className="find-out-button" onClick={handleFindOut}>Find out</button>
         </div>
         <Canvas className="canvas" shadows 
           camera={{position: [0,3,5]}}>
