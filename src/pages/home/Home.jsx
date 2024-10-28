@@ -33,7 +33,7 @@ const Home = ({ onLogout }) => {
           </h2>
           <p className="sub-text">
             ¿Sabías que más de 2 mil millones de personas en el mundo no tienen
-            acceso a <br /> agua potable segura?
+            acceso a agua potable segura?
           </p>
           <button className="find-out-button" onClick={handleFindOut}>Find out</button>
         </div>
