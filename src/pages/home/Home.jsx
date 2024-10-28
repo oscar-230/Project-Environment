@@ -1,7 +1,7 @@
 // src/Home.jsx
 import React, { useCallback } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { BakeShadows, ContactShadows, OrbitControls } from "@react-three/drei";
 import "../../Styles/Home.css";
 import Navbar from "../../components/Navbar.jsx";
 import Footer from "../../components/Footer.jsx";
@@ -46,20 +46,28 @@ const Home = ({ onLogout }) => {
           </p>
           <button className="find-out-button">Find out</button>
         </div>
-        <Canvas className="canvas" shadows 
-          camera={{position: [0,3,5]}}>
-          <OrbitControls enableZoom={true} />
-          <ambientLight intensity={0.8} />
-          <directionalLight
-            position={[0, 5, 0]}
-            castShadow
-            shadow-mapSize-width={1024}
-            shadow-mapSize-height={1024}
-            intensity={1.5}
-          />
-          <Earth scale={[2, 2, 2]} />
-          <Floor />
-        </Canvas>
+          <Canvas
+            shadows
+            camera={{ position: [0, 0, 7], fov:90 }} 
+          >
+            <ambientLight intensity={0.8} />
+            <directionalLight
+              position={[0, 5, 0]}
+              castShadow
+              intensity={2.5}
+            />
+          
+            <Earth />
+            <Floor />
+            
+            {/* Configuración de OrbitControls */}
+            <OrbitControls
+              enablePan={false} 
+              enableZoom={false} 
+              minPolarAngle={Math.PI / 2} 
+              maxPolarAngle={Math.PI / 2} 
+            />
+          </Canvas>
         
       </main>
       <main className="main-secondary">
