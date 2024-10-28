@@ -49,8 +49,8 @@ body {
   margin-top: 2rem;
 }
 .canvas {
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 700px;
   flex: 1;
 }
 .main-secondary {
