@@ -6,8 +6,10 @@ import "../../Styles/Home.css";
 import Navbar from "../../components/Navbar.jsx";
 import Footer from "../../components/Footer.jsx";
 import { useNavigate } from "react-router-dom";
+import Earth from "./models-3d/Earth.jsx";
+import Floor from "./models-3d/Floor.jsx";
 
-const EarthSphere = () => {
+/* const EarthSphere = () => {
   return (
     <mesh castShadow receiveShadow>
       <sphereGeometry args={[2, 64, 64]} />
@@ -18,7 +20,7 @@ const EarthSphere = () => {
       </mesh>
     </mesh>
   );
-};
+}; */
 
 const Home = ({ onLogout }) => {
   const navigate = useNavigate();
@@ -44,18 +46,21 @@ const Home = ({ onLogout }) => {
           </p>
           <button className="find-out-button">Find out</button>
         </div>
-        <Canvas className="canvas" shadows>
-          <ambientLight intensity={0.5} />
+        <Canvas className="canvas" shadows 
+          camera={{position: [0,3,5]}}>
+          <OrbitControls enableZoom={true} />
+          <ambientLight intensity={0.8} />
           <directionalLight
-            position={[5, 5, 5]}
+            position={[0, 5, 0]}
             castShadow
             shadow-mapSize-width={1024}
             shadow-mapSize-height={1024}
             intensity={1.5}
           />
-          <EarthSphere />
-          <OrbitControls enableZoom={false} />
+          <Earth scale={[2, 2, 2]} />
+          <Floor />
         </Canvas>
+        
       </main>
       <main className="main-secondary">
         <div className="text-secondary">
