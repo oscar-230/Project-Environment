@@ -8,7 +8,10 @@ const Earth = (props) => {
   return (
     <group {...props} dispose={null}>
       <group name="Scene">
-        <group name="Sphere" rotation={[-3.138, 0.873, 3.14]}>
+        <group name="Sphere" 
+          position={[0,1,0]}
+          rotation={[-3.138, 0.873, 3.14]} 
+          scale={[4,4,4]}>
           <mesh
             name="Sphere002"
             castShadow
@@ -39,14 +42,22 @@ const Earth = (props) => {
           />
         </group>
       </group>
-    </group>
+     {/* <mesh
+        position={[0, -1.5, 0]} // Ajusta la posición de la sombra
+        rotation={[-Math.PI / 2, 0, 0]} // Asegúrate de que esté en la dirección correcta
+        receiveShadow
+      >
+        <planeGeometry args={[5, 5, 5]} /> 
+        <meshStandardMaterial color="white" opacity={0.5} transparent /> 
+      </mesh> */ }
+    </group> 
 
   );
 };
 
 export default Earth;
 
-useGLTF.preload("models/earth.glb");
+useGLTF.preload("models/Earth.glb");
 
 
 /*const EarthModel = (props) => {
