@@ -71,7 +71,7 @@ const Login = () => {
       <div className="login-wrapper">
       <form action="" className="form" onSubmit={handleEmailPasswordAction}>
           <div className="logo">
-            <img src="/public/imgs/logo.png" className="img" alt="" />
+            <img src="/imgs/logo.png" className="img" alt="" />
           </div>
           <h1 className="title">{isRegister ? "Registro" : "Login"}</h1>
 
@@ -107,11 +107,11 @@ const Login = () => {
 
           <div className="socials-buttons">
             <button type="button" className="google-register" onClick={handleLogin}>
-              <img src="public\imgs\google-icon.png" alt="" />
+              <img src="/imgs/google-icon.png" alt="" />
             </button>
 
             <button type="button" className="facebook-register">
-              <img src="public\imgs\facebook-icon.png" alt="" />
+              <img src="/imgs/facebook-icon.png" alt="" />
             </button>
 
           </div>
