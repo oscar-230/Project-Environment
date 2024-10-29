@@ -17,7 +17,7 @@ const Navbar = ({ onLogout }) => {
       </div>
       <nav>
         <a href="#home" onClick={() => navigate("/home")}>Home</a>
-        <a href="#problem" onClick={() => navigate("/problem")}>Problem</a>
+        <a href="#problem" onClick={() => navigate("/problem")}>Problems</a>
         <a href="#solutions">Solutions</a>
         <a href="#quizz">Quizz</a>
         <a href="#options">Options</a>
