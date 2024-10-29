@@ -8,6 +8,7 @@ import Footer from "../../components/Footer.jsx";
 import { useNavigate } from "react-router-dom";
 import Earth from "./models-3d/Earth.jsx";
 import Floor from "./models-3d/Floor.jsx";
+import Lights from "./lights/Lights.jsx";
 
 const Home = ({ onLogout }) => {
   const navigate = useNavigate();
@@ -41,23 +42,17 @@ const Home = ({ onLogout }) => {
             shadows
             camera={{ position: [0, 0, 7], fov:90 }} 
           >
-            <ambientLight intensity={0.8} />
-            <directionalLight
-              position={[0, 5, 0]}
-              castShadow
-              intensity={2.5}
-            />
-          
+            <Lights />
             <Earth />
             <Floor />
-            
-            {/* Configuración de OrbitControls */}
+
             <OrbitControls
               enablePan={false} 
               enableZoom={false} 
               minPolarAngle={Math.PI / 2} 
               maxPolarAngle={Math.PI / 2} 
             />
+            
           </Canvas>
         
       </main>
