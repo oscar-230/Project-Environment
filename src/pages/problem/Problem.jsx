@@ -8,9 +8,12 @@ import Nature from "./models-3d/Nature";
 import { KeyboardControls } from "@react-three/drei";
 import Lights from "./models-3d/Lights";
 import Controls from "./models-3d/Controls";
+import { useNavigate } from "react-router-dom";
 
 const Problem = ({ onLogout }) => {
   
+  const navigate = useNavigate();
+
   const cameraSettings = {
     position: [0, 2, 5],
   };
@@ -47,7 +50,7 @@ const Problem = ({ onLogout }) => {
             a los ecosistemas, sino que también pone en riesgo la salud humana, afectando a millones 
             de personas que dependen de fuentes de agua contaminadas
           </p>
-          <button className="button-problem">Ver más</button>
+          <button className="button-problem" onClick={()=> navigate("/contamination")}>Ver más</button>
         </div>
       </main>
 
