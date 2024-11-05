@@ -1,0 +1,84 @@
+/* Contamination.css */
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+.details-main {
+  display: flex;
+  padding: 2rem;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.text-content-details {
+  max-width: 50%;
+  padding-right: 2rem;
+}
+
+.text-3d-canvas {
+  width: 100%;
+  height: 100px;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.details-card {
+  background-color: #e8f5e9;
+  border-left: 4px solid #4caf50;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.details-subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #4caf50;
+  margin-bottom: 0.5rem;
+}
+
+.details-paragraph {
+  font-size: 16px;
+  color: #717171;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.generate-button {
+  padding: 1rem;
+  background-color: #4caf4f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 2rem;
+}
+
+.canvas-container-details {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+}
+
+.details-main {
+  display: flex; /* Para colocar columnas lado a lado */
+  justify-content: space-between; /* Espacio entre columnas */
+  width: 95%; /* Ocupa el ancho completo */
+}
+
+.left-column,
+.right-column {
+  flex: 1; /* Cada columna ocupa el mismo espacio */
+  padding: 20px; /* Espacio interno */
+}
+
+.text-3d-canvas {
+  height: 100px; /* Ajusta la altura según sea necesario */
+}
