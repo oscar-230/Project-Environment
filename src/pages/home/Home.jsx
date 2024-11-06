@@ -36,7 +36,7 @@ const Home = ({ onLogout }) => {
             ¿Sabías que más de 2 mil millones de personas en el mundo no tienen
             acceso a agua potable segura?
           </p>
-          <button className="find-out-button" onClick={handleFindOut}>Find out</button>
+          <button className="find-out-button" onClick={handleFindOut}>Descubrir</button>
         </div>
           <Canvas
             shadows
