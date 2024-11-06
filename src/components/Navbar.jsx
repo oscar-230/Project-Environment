@@ -16,13 +16,13 @@ const Navbar = ({ onLogout }) => {
         <h1>BluePlanet</h1>
       </div>
       <nav>
-        <a href="#home" onClick={() => navigate("/home")}>Home</a>
-        <a href="#problem" onClick={() => navigate("/problem")}>Problems</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#quizz">Quizz</a>
-        <a href="#options">Options</a>
+        <a href="#home" onClick={() => navigate("/home")}>Principal</a>
+        <a href="#problem" onClick={() => navigate("/problem")}>Problemas</a>
+        <a href="#solutions">Soluciones</a>
+        <a href="#quizz">Quizzes</a>
+        <a href="#options">Opciones</a>
       </nav>
-      <button className="logout-button" onClick={handleLogout}>Logout</button>
+      <button className="logout-button" onClick={handleLogout}>Salir</button>
     </header>
   );
 };
