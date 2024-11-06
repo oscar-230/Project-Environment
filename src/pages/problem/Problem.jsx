@@ -62,10 +62,10 @@ const Problem = ({ onLogout }) => {
             <spotLight position={[10, 10, 10]} angle={0.15} intensity={0.7} castShadow />
 
             <Text3D
-              font="/fonts/blue-font.json"
+              font="/fonts/Inter_Bold.json"
               size={1.5}  
               height={0.2} 
-              position={[-3, 0, 0]} 
+              position={[-3, 1, 0]} 
               rotation={[0,0.5,0]}
             >
               Sección
@@ -73,7 +73,7 @@ const Problem = ({ onLogout }) => {
             </Text3D>
 
             <Text3D
-              font="/fonts/blue-font.json"
+              font="/fonts/Inter_Bold.json"
               size={1.5}  
               height={0.2} 
               position={[-4.5, -1, 0]} 

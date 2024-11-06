@@ -6,9 +6,11 @@
   background-color: #f5f7fa;
   min-height: 100vh;
   font-family: "Inter", sans-serif;
+  min-height: 100vh;
 }
 
 .details-main {
+  flex: 1;
   display: flex;
   padding: 2rem;
   align-items: flex-start;
