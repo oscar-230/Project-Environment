@@ -2,9 +2,9 @@
     width: 100vw; 
     height: 100vh;
     background-image: url("/imgs/water.jpg");
-    background-size: cover; 
+    background-size: 160%; 
     background-position: center;
-    filter: hue-rotate(15deg);
+    filter: hue-rotate(20deg);
 }
 
 .login-container {
@@ -17,8 +17,8 @@
     width: 350px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.1); /* Efecto de fondo borroso */
-    backdrop-filter: blur(5px); 
+    background: rgba(255, 255, 255, 0.2); /* Efecto de fondo borroso */
+    backdrop-filter: blur(6px); 
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5); /* Sombra */
     border-radius: 20px; 
 }
@@ -30,7 +30,7 @@
 }
 
 .logo img {
-    width: 80px;
+    width: 90px;
     height: auto;
 }
 
