@@ -4,6 +4,7 @@ import Login from "../pages/login/Login";
 import Problem from "../pages/problem/Problem"; 
 import Contamination from "../pages/contamination/Contamination";
 import useAuthStore from "../Stores/use-auth-store";
+import Scarcity from "../pages/scarcity/Scarcity";
 
 const RoutesProject = ()  => {
     const { logout } = useAuthStore();
@@ -15,6 +16,7 @@ const RoutesProject = ()  => {
                 <Route path="/home" element={<Home onLogout={logout}/>} />
                 <Route path="/problem" element={<Problem onLogout={logout} />} /> 
                 <Route path="/contamination" element={<Contamination onLogout={logout} />} />
+                <Route path="/scarcity"  element={<Scarcity onLogout={logout} />}  />
             </Routes>
         </BrowserRouter>
     )
