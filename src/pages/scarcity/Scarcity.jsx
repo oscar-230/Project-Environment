@@ -13,8 +13,8 @@ const Scarcity = ({ onLogout }) => {
             <div className="left-column">
               <Canvas className="text-3d-canvas">
                 <Text3D 
-                  font="/fonts/blue-font.json" 
-                  size={3} 
+                  font="/fonts/Inter_Bold.json" 
+                  size={2.5} 
                   color="#007BFF" 
                   bevelEnabled 
                   bevelSize={0.02} 
@@ -59,8 +59,8 @@ const Scarcity = ({ onLogout }) => {
             <div className="right-column">
               <Canvas className="text-3d-canvas">
                 <Text3D 
-                  font="/fonts/blue-font.json" 
-                  size={3} 
+                  font="/fonts/Inter_Bold.json" 
+                  size={2.5} 
                   color="#4CAF50" 
                   bevelEnabled 
                   bevelSize={0.02} 
