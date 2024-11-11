@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Forest from "./models-3d/Forest";
 import { Canvas } from "@react-three/fiber";
-import { KeyboardControls } from "@react-three/drei";
+import { Environment, KeyboardControls } from "@react-three/drei";
 import { useMemo } from "react";
 import Controls from "../problem/models-3d/Controls";
 import Lights from "../problem/models-3d/Lights";
@@ -32,6 +32,7 @@ const Staging = ({ onLogout }) => {
               <Controls />
               <Lights />
               <Forest />
+              <Environment files="/hdris/sky/sky.hdr" background={true}  intensity={0.5} />
             </Canvas>
           </div>
         </KeyboardControls>
