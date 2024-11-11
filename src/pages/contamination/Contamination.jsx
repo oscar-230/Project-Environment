@@ -4,8 +4,16 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { Text3D } from "@react-three/drei";
 import "../../Styles/Contamination.css";
+import { useNavigate } from "react-router-dom";
 
 const Contamination = ({ onLogout }) => {
+
+  const navigate = useNavigate();
+
+  const handleGenerateClick = () => {
+    navigate("/staging");
+  };
+
   return (
     <div className="details-container">
       <Navbar onLogout={onLogout} />
@@ -84,7 +92,7 @@ const Contamination = ({ onLogout }) => {
             </p>
           </div>
 
-          <button className="generate-button">Generar entorno</button>
+          <button className="generate-button" onClick={handleGenerateClick} >Generar entorno</button>
         </div>
       </main>
       <Footer />
