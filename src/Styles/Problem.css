@@ -26,15 +26,31 @@ body {
 
 .text-content-problem {
     flex: 1;
-    max-width: 50%; /* Ocupa la mitad del ancho */
+    max-width: 50%; 
+    padding: 30px;
     padding-left: 2rem;
+    border-radius: 10px; 
+    background-color: #fbfbfb; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 400px; /* Limita la altura del contenedor */
 }
 
+
 .main-title-problem {
-    font-size: 46px; /* Ajustado para mayor balance con el modelo */
+    font-size: 46px;
     font-weight: 600;
     margin: 0;
     color: #4d4d4d;
+}
+
+.scrollable-text {
+    flex: 1;
+    overflow-y: auto; /* Añade el scroll vertical */
+    padding-right: 10px; /* Espacio para la barra de scroll */
+    margin-top: 1rem;
 }
 
 .sub-text-problem {
@@ -52,8 +68,9 @@ body {
     color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 16px; 
     margin-top: 2rem;
+    margin-right: auto; 
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
