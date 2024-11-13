@@ -66,14 +66,20 @@ body {
   align-items: center;
   padding: 2rem;
   flex: 1;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
 }
 .text-secondary {
   flex: 1;
+  margin-top: 200px;
+  
 }
 .secondary-tittle {
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 600;
-  margin: 0;
+  margin-top: -4.2rem;
+  margin-left: 1rem;
+
 }
 .text-gray-second {
   color: #4d4d4d;
@@ -90,7 +96,7 @@ body {
 .stats-section {
   display: flex;
   justify-content: center; /* Centrar el contenido */
-  padding: 2rem; /* Espaciado alrededor de la sección */
+  padding: 1rem; /* Espaciado alrededor de la sección */
 }
 .stats {
   display: grid; /* Usar grid para organizar en filas y columnas */
@@ -128,4 +134,56 @@ body {
   color: #717171;
   margin: 0.5rem; /* Quitar el margen por defecto */
   line-height: 1.5;
+}
+
+.sensibilization-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  margin-top: -20rem;
+  flex: 1;
+  margin-left: -10rem; /* Añadimos un margen izquierdo para separar del canvas */
+  margin-right: 3rem;
+  background-color: #fbfbfb; /* Puedes cambiar el color de fondo si es necesario */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.section-title {
+  color: #4D4D4D;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.section-text {
+  color: #4D4D4D;
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+canvas {
+  cursor: pointer;
+}
+
+.arrow-container {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);  
+  font-size: 3rem;  
+  animation: bounce 1.3s infinite;
+  color: #2FBCDC;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0) translateX(-50%);
+  }
+  50% {
+    transform: translateY(10px) translateX(-50%);
+  }
+  100% {
+    transform: translateY(0) translateX(-50%);
+  }
 }
