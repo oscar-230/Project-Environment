@@ -77,17 +77,24 @@
 }
 
 .details-main {
-  display: flex; /* Para colocar columnas lado a lado */
-  justify-content: space-between; /* Espacio entre columnas */
-  width: 95%; /* Ocupa el ancho completo */
+  display: flex; 
+  justify-content: space-between;
+  width: 95%; 
 }
 
 .left-column,
 .right-column {
-  flex: 1; /* Cada columna ocupa el mismo espacio */
-  padding: 20px; /* Espacio interno */
+  flex: 1; 
+  padding: 20px; 
+  margin-top: -1rem;
 }
 
 .text-3d-canvas {
-  height: 100px; /* Ajusta la altura según sea necesario */
+  height: 100px; 
+}
+
+.title-secondary {
+  font-size: 50px;
+  color: #4D4D4D;
+  font-weight: 600;
 }

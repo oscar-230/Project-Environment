@@ -1,31 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import { Canvas } from "@react-three/fiber";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { Text3D } from "@react-three/drei";
 import "../../Styles/Scarcity.css"
+import { useNavigate } from 'react-router-dom';
 
 const Scarcity = ({ onLogout }) => {
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleNavigate = () => {
+    navigate("/desertstaging");
+  };
+
     return (
         <div className="details-container">
           <Navbar onLogout={onLogout} />
           <main className="details-main">
             <div className="left-column">
-              <Canvas className="text-3d-canvas">
-                <Text3D 
-                  font="/fonts/Inter_Bold.json" 
-                  size={2.5} 
-                  color="#007BFF" 
-                  bevelEnabled 
-                  bevelSize={0.02} 
-                  bevelThickness={0.01} 
-                  height={0.3} 
-                  position={[-15, 0, 0]}
-                >
-                  Causas
-                  <meshNormalMaterial />
-                </Text3D>
-              </Canvas>
+              <h1 className="title-secondary">Causas</h1>
     
               <div className="details-card">
                 <p className="details-subtitle">Cambio climático</p>
@@ -57,44 +55,30 @@ const Scarcity = ({ onLogout }) => {
             </div>
     
             <div className="right-column">
-              <Canvas className="text-3d-canvas">
-                <Text3D 
-                  font="/fonts/Inter_Bold.json" 
-                  size={2.5} 
-                  color="#4CAF50" 
-                  bevelEnabled 
-                  bevelSize={0.02} 
-                  bevelThickness={0.01} 
-                  height={0.3} 
-                  position={[-15, 0, 0]}
-                >
-                  Consecuencias
-                  <meshNormalMaterial />
-                </Text3D>
-              </Canvas>
+             <h1 className="title-secondary">Consecuencias</h1>
     
               <div className="details-card">
                 <p className="details-subtitle">Sequías Extensas</p>
                 <p className="details-paragraph">
-                 ...
+                  Reducción de fuentes de agua, escasez de alimentos y pérdida de biodiversidad.
                 </p>
               </div>
     
               <div className="details-card">
                 <p className="details-subtitle">Ecosistemas Deteriorados</p>
                 <p className="details-paragraph">
-                 ...
+                  Pérdida de hábitats, disminución de especies y alteración del equilibrio natural.
                 </p>
               </div>
 
               <div className="details-card">
                 <p className="details-subtitle">Impacto en la Agricultura</p>
                 <p className="details-paragraph">
-                 ...
+                  Caída en la producción de alimentos, aumento de precios y seguridad alimentaria comprometida.
                 </p>
               </div>
     
-              <button className="generate-button">Generar entorno</button>
+              <button className="generate-button" onClick={handleNavigate}>Generar entorno</button>
             </div>
           </main>
           <Footer />

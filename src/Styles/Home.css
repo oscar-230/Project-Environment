@@ -163,7 +163,11 @@ body {
 }
 
 canvas {
-  cursor: pointer;
+  cursor: grab;
+}
+
+canvas:active {
+  cursor: grabbing;
 }
 
 .arrow-container {
