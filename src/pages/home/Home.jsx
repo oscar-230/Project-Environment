@@ -7,9 +7,11 @@ import Navbar from "../../components/Navbar.jsx";
 import Footer from "../../components/Footer.jsx";
 import { useNavigate } from "react-router-dom";
 import Earth from "./models-3d/Earth.jsx";
+import Earth2 from "./models-3d/Earth2.jsx";
 import Floor from "./models-3d/Floor.jsx";
 import Lights from "./lights/Lights.jsx";
 import { FaArrowDown } from 'react-icons/fa';  // Asegúrate de instalar react-icons si no lo tienes
+
 
 const Home = ({ onLogout }) => {
   const [showSecondCanvas, setShowSecondCanvas] = useState(false);
@@ -193,7 +195,7 @@ const Home = ({ onLogout }) => {
             }}
           >
             <Lights />
-            <Earth />
+            <Earth2 />
             <Floor />
             <OrbitControls
               enablePan={false}
