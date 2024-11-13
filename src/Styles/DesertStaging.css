@@ -1,0 +1,16 @@
+.action-button {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    position: absolute;
+    background-color: #D7A98F;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: rgb(153, 133, 114);
+    transform: translateX(-50%) scale(1.1); /* Aumenta el tamaño uniformemente */
+}

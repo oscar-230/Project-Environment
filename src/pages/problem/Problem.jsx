@@ -9,6 +9,7 @@ import { KeyboardControls, Text3D } from "@react-three/drei";
 import Lights from "./models-3d/Lights";
 import Controls from "./models-3d/Controls";
 import { useNavigate } from "react-router-dom";
+import Desert from "./models-3d/Desert";
 
 const Problem = ({ onLogout }) => {
   
@@ -16,6 +17,10 @@ const Problem = ({ onLogout }) => {
 
   const cameraSettings = {
     position: [0, 2, 5],
+  };
+
+  const cameraSettings2 = {
+    position: [-8, 4, 7],
   };
 
   const map = useMemo(
@@ -57,32 +62,12 @@ const Problem = ({ onLogout }) => {
       <main className="main-content-problem">
         <KeyboardControls map={map}>
           <div className="canvas-container">
-          <Canvas>
-            <ambientLight intensity={0.5} />
-            <spotLight position={[10, 10, 10]} angle={0.15} intensity={0.7} castShadow />
+            <Canvas camera={cameraSettings2}>
+              <Controls />
+              <Lights />
+              <Desert />
 
-            <Text3D
-              font="/fonts/Inter_Bold.json"
-              size={1.5}  
-              height={0.2} 
-              position={[-3, 1, 0]} 
-              rotation={[0,0.5,0]}
-            >
-              Sección
-              <meshBasicMaterial color="#4D4D4D" />
-            </Text3D>
-
-            <Text3D
-              font="/fonts/Inter_Bold.json"
-              size={1.5}  
-              height={0.2} 
-              position={[-4.5, -1, 0]} 
-              rotation={[0,0.5,0]}
-            >
-            en desarrollo . . .
-            <meshBasicMaterial color="#4D4D4D" />
-          </Text3D>
-        </Canvas>
+            </Canvas>
           </div>
         </KeyboardControls>
         <div className="text-content-problem">
