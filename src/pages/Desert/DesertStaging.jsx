@@ -12,6 +12,8 @@ import {
   import DesertStagingModel from "./models-3d/DesertStagingModel";
   import "../../Styles/DesertStaging.css";
   import Lights from "./models-3d/Lights";
+import { Physics } from "@react-three/rapier";
+import Car from "./models-3d/Car";
   
   const DesertStaging = ({ onLogout }) => {
     useEffect(() => {
@@ -93,7 +95,10 @@ import {
   
                 <OrbitControls />
                 <Lights />
-                <DesertStagingModel />
+                <Physics debug={false}>
+                  <Car position={[1,0.7,0]} />
+                  <DesertStagingModel />
+                </Physics>
   
                 <Environment
                   files={isDay ? "/hdris/sky/sky3.hdr" : "/hdris/sky/sky2.hdr"}
