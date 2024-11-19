@@ -1,9 +1,10 @@
 import { useGLTF } from "@react-three/drei";
 import { useRef } from "react";
 import { MeshStandardMaterial } from 'three';
+import { RigidBody } from "@react-three/rapier";
 
 const DesertStagingModel = (props) => {
-  const { scene } = useGLTF("/models/DesertStaging.glb");
+  const { nodes, materials, scene } = useGLTF("/models/DesertStaging.glb");
   const DesertModelRef = useRef(null);
   // Habilitar sombras para los objetos del modelo
   scene.traverse((node) => {
@@ -21,9 +22,11 @@ const DesertStagingModel = (props) => {
   });
 
   return (
-    <group {...props} dispose={null} scale={[2, 2, 2]} ref={DesertModelRef} castShadow receiveShadow>
-      <primitive object={scene} />
-    </group>
+    <RigidBody type="fixed" colliders="trimesh">
+      <group {...props} dispose={null} scale={[2, 2, 2]} ref={DesertModelRef} castShadow receiveShadow>
+        <primitive object={scene} />
+      </group>
+    </RigidBody>
   );
   
 };
