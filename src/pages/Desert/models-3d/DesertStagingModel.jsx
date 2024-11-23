@@ -23,7 +23,7 @@ const DesertStagingModel = (props) => {
 
   return (
     <RigidBody type="fixed" colliders="trimesh">
-      <group {...props} dispose={null} scale={[2, 2, 2]} ref={DesertModelRef} castShadow receiveShadow>
+      <group {...props} dispose={null} scale={30} ref={DesertModelRef} >
         <primitive object={scene} />
       </group>
     </RigidBody>

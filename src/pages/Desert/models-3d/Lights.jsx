@@ -1,9 +1,9 @@
 const Lights = () => {
   return (
     <>
-      <ambientLight intensity={0} />
+      <ambientLight intensity={0.5} />
       <directionalLight
-        position={[7, 10, 0]}
+        position={[10, 40, 50]}
         intensity={1}
         castShadow // Esta luz proyectará sombras
         shadow-mapSize-width={1024} // Ajuste para la calidad de las sombras
