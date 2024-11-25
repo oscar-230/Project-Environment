@@ -13,23 +13,22 @@ import { useGLTF } from "@react-three/drei";
 const Boat = () => {
   const boatRef = useRef();
   const [velocity, setVelocity] = useState({ x: 0, z: 0 });
-  const [rotation, setRotation] = useState({ y: 0 });
 
-  // Manejo de teclas para mover y rotar el bote
+  // Manejo de teclas para mover el bote
   useEffect(() => {
     const handleKeyDown = (e) => {
       switch (e.key) {
-        case "w":
-          setVelocity((prev) => ({ ...prev, z: prev.z - 1 }));
-          break;
-        case "s":
-          setVelocity((prev) => ({ ...prev, z: prev.z + 1 }));
-          break;
         case "a":
-          setRotation((prev) => ({ y: prev.y + 0.05 }));
+          setVelocity((prev) => ({ ...prev, z: -3 })); // Avanzar
           break;
         case "d":
-          setRotation((prev) => ({ y: prev.y - 0.05 }));
+          setVelocity((prev) => ({ ...prev, z: 3 })); // Retroceder
+          break;
+        case "s":
+          setVelocity((prev) => ({ ...prev, x: -3 })); // Izquierda
+          break;
+        case "w":
+          setVelocity((prev) => ({ ...prev, x: 3 })); // Derecha
           break;
         default:
           break;
@@ -37,8 +36,8 @@ const Boat = () => {
     };
 
     const handleKeyUp = (e) => {
-      if (["w", "s"].includes(e.key)) {
-        setVelocity((prev) => ({ ...prev, z: 0 }));
+      if (["w", "s", "a", "d"].includes(e.key)) {
+        setVelocity({ x: 0, z: 0 }); // Detener movimiento
       }
     };
 
@@ -51,26 +50,24 @@ const Boat = () => {
     };
   }, []);
 
-  // Aplica la velocidad al bote
+  // Aplicar velocidad al bote
   useEffect(() => {
     if (boatRef.current) {
       boatRef.current.setLinvel({ x: velocity.x, y: 0, z: velocity.z });
     }
   }, [velocity]);
 
-  // Carga el modelo del bote
+  // Cargar modelo del bote
   const { scene } = useGLTF("/models/Boat.glb");
+
 
   return (
     <RigidBody ref={boatRef} type="dynamic" restitution={0.5} friction={0.8}>
       <primitive
         object={scene}
         scale={[0.3, 0.3, 0.3]}
-        position={[0, 1.1, 2]}
-        rotation={[0, rotation.y, 0]}
-      >
-        <meshStandardMaterial color="#ff6347" /> {/* Color del bote */}
-      </primitive>
+        position={[-3, 1.1, 1]}
+      />
     </RigidBody>
   );
 };
@@ -91,7 +88,25 @@ const Staging = ({ onLogout }) => {
   );
 
   const [isDay, setIsDay] = useState(true);
-  const toggleDayNight = () => setIsDay((prev) => !prev);
+
+  // Alternar entre día y noche
+  const toggleDayNight = (mode) => {
+    setIsDay(mode === "day");
+  };
+
+  // Manejar eventos de teclado para cambiar entre día y noche
+  useEffect(() => {
+    const handleDayNightToggle = (e) => {
+      if (e.key === "n") toggleDayNight("night"); // Noche
+      if (e.key === "d") toggleDayNight("day"); // Día
+    };
+
+    window.addEventListener("keydown", handleDayNightToggle);
+
+    return () => {
+      window.removeEventListener("keydown", handleDayNightToggle);
+    };
+  }, []);
 
   return (
     <div className="staging-container">
@@ -118,7 +133,7 @@ const Staging = ({ onLogout }) => {
                   <Controls />
                   <Lights />
                   <Forest />
-                  <Boat /> {/* Bote con físicas y color */}
+                  <Boat /> {/* Bote con físicas */}
                   <Environment
                     files={isDay ? "/hdris/sky/sky.hdr" : "/hdris/sky/night_sky.hdr"}
                     background={true}
@@ -143,7 +158,7 @@ const Staging = ({ onLogout }) => {
                         borderRadius: "5px",
                         cursor: "pointer",
                       }}
-                      onClick={toggleDayNight}
+                      onClick={() => toggleDayNight(isDay ? "night" : "day")}
                     >
                       {isDay ? "Cambiar a Noche" : "Cambiar a Día"}
                     </button>
