@@ -2,7 +2,7 @@ import { useGLTF } from "@react-three/drei";
 import { useRef } from "react";
 
 const Forest = (props) => {
-  const { scene } = useGLTF("/models/Forest.glb");
+  const { scene } = useGLTF("/models/Island.glb");
   const ForestRef = useRef(null);
 
   const handleForest = (e) => {
