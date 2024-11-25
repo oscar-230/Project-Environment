@@ -9,12 +9,9 @@ import Car from "./models-3d/Car";
 import { Suspense } from 'react';
 import DesertEnvironment from "./components/DesertEnvironment";
 import Instructions from "./components/Instructions";
+import Snake from "./models-3d/Snake";
 
 const DesertStaging = ({ onLogout }) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  
   const [isDay, setIsDay] = useState(true);
   const [showInstructions] = useState(true);
   const [darkBackground, setDarkBackground] = useState(true);
@@ -22,6 +19,10 @@ const DesertStaging = ({ onLogout }) => {
   const handleKeyPress = () => {
     setDarkBackground(false);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const handleKey = (event) => {
@@ -68,6 +69,7 @@ const DesertStaging = ({ onLogout }) => {
                 <Physics debug={false}>
                   <DesertStagingModel />
                   <Car />
+                  <Snake />
                 </Physics>
               </Suspense>
           </Canvas>
