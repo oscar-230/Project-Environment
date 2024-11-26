@@ -18,7 +18,7 @@ const Navbar = ({ onLogout }) => {
       <nav>
         <a href="#home" onClick={() => navigate("/home")}>Inicio</a>
         <a href="#problem" onClick={() => navigate("/problem")}>Problemas</a>
-        <a href="#solutions">Soluciones</a>
+        <a href="#solutions" onClick={() => navigate("/solution")}>Soluciones</a>
         <a href="#quizz">Quizzes</a>
         <a href="#options">Opciones</a>
       </nav>
