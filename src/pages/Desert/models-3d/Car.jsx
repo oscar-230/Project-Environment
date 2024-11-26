@@ -35,9 +35,9 @@ const Car = (props) => {
             <Ecctrl
                 capsuleHalfHeight={0.3}
                 floatingDis={0.4}
-                camInitDis={-4}
+                camInitDis={-3}
                 camMinDis={-2}
-                camMaxDis={-30}
+                camMaxDis={-10}
                 maxVelLimit={3.5}
                 position={[13,15,1]}
                 >
