@@ -11,7 +11,7 @@ const DesertEnvironment = ({ isDay, setIsDay }) => {
     "¡Mira cómo se reduce el agua en el oasis! Si seguimos así, nuestros recursos hídricos disminuirán drásticamente. El futuro de muchas regiones depende de nuestro esfuerzo por ahorrar agua. ¡No dejemos que esto suceda!",
     "Si seguimos desperdiciando agua a este ritmo, los desiertos avanzarán y los ríos se secarán. Muchas comunidades ya enfrentan escasez, y nosotros podemos ayudar a evitarlo. ¡Cada gota cuenta!",
    "Para solucionar la escasez de agua, debemos reparar fugas, usar dispositivos ahorradores y fomentar el uso de tecnologías como la recolección de agua de lluvia. Además, apoyar la reforestación ayuda a mantener los ciclos naturales del agua. ¡Actuar ahora es clave para asegurar agua limpia para todos!",
-  ]); // Arreglo de textos
+  ]); 
 
   const [showText1, setShowText1] = useState(false); 
 
@@ -20,12 +20,12 @@ const DesertEnvironment = ({ isDay, setIsDay }) => {
   };
 
   const toggleText1 = () => {
-    setShowText1(!showText1); // Cambiar el estado del primer texto
+    setShowText1(!showText1); 
   };
 
   const toggleText2 = () => {
-    setShowText2(!showText2); // Cambiar el estado del segundo texto
-    setTextIndex(0); // Reiniciar el índice del texto al abrir
+    setShowText2(!showText2); 
+    setTextIndex(0);
   };
 
   const handleArrowClick = () => {
@@ -63,23 +63,7 @@ const DesertEnvironment = ({ isDay, setIsDay }) => {
         <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
       )}
 
-      {/* Primer botón (cambiar día/noche) */}
-      <Html position={[7, 19, 45]} scale={2} transform style={{ zIndex: 10 }} rotation={[0, 3, 0]}>
-        <button
-          className="action-button"
-          onClick={toggleNight}
-          style={{
-            color: "white",
-            padding: "10px 20px",
-            borderRadius: "5px",
-            fontSize: "16px",
-            border: "none",
-            zIndex: 10,
-          }}
-        >
-          Cambiar a {isDay ? "Noche" : "Día"}
-        </button>
-      </Html>
+
 
       {/* Snake Button*/}
       <Html position={[20, 14.6, 15]} scale={2} transform style={{ zIndex: 10 }} rotation={[0, 3.5, 0]}>
@@ -154,13 +138,14 @@ const DesertEnvironment = ({ isDay, setIsDay }) => {
       </Html>
 
       {/* Lake text */}
-      {showText2 && (
-        <Html 
-          position={[-17, 17.2, 15.4]} 
-          scale={2} 
-          transform 
-          style={{ zIndex: 10 }} 
-          rotation={[0, 2.1, 0]}>
+        {showText2 && (
+        <Html
+          position={[-17, 17.2, 15.4]}
+          scale={2}
+          transform
+          style={{ zIndex: 10 }}
+          rotation={[0, 2.1, 0]}
+        >
           <div
             style={{
               color: "white",
@@ -171,24 +156,40 @@ const DesertEnvironment = ({ isDay, setIsDay }) => {
               maxWidth: "200px",
               textAlign: "center",
               position: "relative",
-              lineHeight: "1.3"
+              lineHeight: "1.3",
             }}
           >
             <p>{text[textIndex]}</p>
 
-            {/* Ícono de flecha en la parte inferior derecha */}
-            <i
-             className="fa fa-arrow-right icon-hover"
-              onClick={handleArrowClick}
-              style={{
-                position: "absolute",
-                bottom: "5px",
-                right: "5px",
-                fontSize: "7px",
-                cursor: "pointer",
-              }}
-            ></i>
+            {/* Flecha izquierda para retroceder */}
+            {textIndex > 0 && (
+              <i
+                className="fa fa-arrow-left icon-hover"
+                onClick={() => setTextIndex((prevIndex) => prevIndex - 1)}
+                style={{
+                  position: "absolute",
+                  bottom: "5px",
+                  left: "5px",
+                  fontSize: "7px",
+                  cursor: "pointer",
+                }}
+              ></i>
+            )}
 
+            {/* Flecha derecha para avanzar */}
+            {textIndex < text.length - 1 && (
+              <i
+                className="fa fa-arrow-right icon-hover"
+                onClick={handleArrowClick}
+                style={{
+                  position: "absolute",
+                  bottom: "5px",
+                  right: "5px",
+                  fontSize: "7px",
+                  cursor: "pointer",
+                }}
+              ></i>
+            )}
           </div>
         </Html>
       )}

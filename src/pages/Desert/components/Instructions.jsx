@@ -18,7 +18,7 @@ const Instructions = ({ showInstructions }) => {
         }}
       >
         <p>Para moverse usa las teclas W A S D</p>
-        <p>Para cambiar el horario, presiona 'n' para noche y 'd' para día.</p>
+        <p>Para cambiar el horario, presiona 'n' para noche y 'm' para día.</p>
         <p><strong>Presiona cualquier tecla para empezar...</strong></p>
       </div>
     )

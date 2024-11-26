@@ -28,7 +28,7 @@ const DesertStaging = ({ onLogout }) => {
     const handleKey = (event) => {
       if (event.key === "n") {
         setIsDay(false);
-      } else if (event.key === "d") {
+      } else if (event.key === "m") {
         setIsDay(true); 
       }
       if (darkBackground) {
