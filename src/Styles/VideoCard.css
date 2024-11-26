@@ -1,0 +1,40 @@
+.video-card {
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    width: 350px;  
+    margin: 55px;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-card:hover {
+    transform: scale(1.03);
+}
+
+.video-card iframe {
+    width: 80%; 
+    height: 200px;
+    border-radius: 10px;
+    margin: 0 auto; 
+}
+
+.video-card h3 {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.video-description {
+    font-size: 14px;
+    color: #555;
+    padding: 30px;
+    text-align: center;
+    margin-top: 10px;
+    line-height: 20px;
+}

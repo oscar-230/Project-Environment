@@ -1,0 +1,21 @@
+.video-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Las tarjetas se ajustarán en filas si es necesario */
+    gap: 10px; /* Reduce el espacio entre las tarjetas */
+    overflow-x: auto;
+    overflow: hidden;
+    height: 550px;
+}
+
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+footer {
+    margin-top: auto;
+}
