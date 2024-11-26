@@ -10,7 +10,7 @@ import Earth from "./models-3d/Earth.jsx";
 import Earth2 from "./models-3d/Earth2.jsx";
 import Floor from "./models-3d/Floor.jsx";
 import Lights from "./lights/Lights.jsx";
-import { FaArrowDown } from 'react-icons/fa';  // Asegúrate de instalar react-icons si no lo tienes
+import { FaArrowDown } from 'react-icons/fa';
 
 
 const Home = ({ onLogout }) => {
@@ -173,13 +173,12 @@ const Home = ({ onLogout }) => {
         <section className="sensibilization-section">
           <h3 className="section-title">¡Cada gota cuenta!</h3>
           <p className="section-text">
-            El agua es uno de los recursos más valiosos y limitados en nuestro planeta. Sin embargo, muchas personas alrededor del mundo siguen careciendo de acceso a agua limpia y segura. Cada año, millones de personas mueren debido a enfermedades relacionadas con la falta de agua potable. La contaminación y el desperdicio de agua son problemas que afectan a todos, sin importar el lugar en el que vivamos.
+            Nuestro planeta enfrenta graves problemas medioambientales: el cambio climático, la escazes del agua, la deforestación, la pérdida de biodiversidad y la contaminación de aire, agua y suelo están afectando de forma alarmante los ecosistemas y nuestra calidad de vida. Estas crisis son el resultado de actividades humanas como la sobreexplotación de recursos, el uso excesivo de combustibles fósiles y la generación de desechos.
           </p>
           <p className="section-text">
-            Todos podemos hacer la diferencia. Con pequeños gestos como cerrar la llave mientras nos cepillamos los dientes, reparar fugas en las tuberías y evitar el uso innecesario del agua, contribuimos a un futuro más sostenible. Es nuestra responsabilidad proteger este recurso esencial para las generaciones venideras. ¡Actúa hoy, el agua es vida!
+            Para proteger el medio ambiente, debemos actuar con urgencia. Reducir las emisiones de carbono, reciclar, evitar plásticos de un solo uso y apoyar la conservación de la naturaleza son pasos fundamentales. Cada acción cuenta para preservar nuestro hogar común y garantizar un futuro saludable para las próximas generaciones. ¡Es momento de actuar!
           </p>
         </section>
-
         {showSecondCanvas && (
           <Canvas
             ref={canvasRef2}

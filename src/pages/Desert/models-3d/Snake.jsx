@@ -26,7 +26,7 @@ const Snake = (props) => {
   }, [actions, currentAction]);
 
   return (
-    <RigidBody type="fixed" colliders="trimesh">
+    <RigidBody type="dynamic" colliders="trimesh">
       <group
         ref={group}
         {...props}
