@@ -7,6 +7,7 @@ import useAuthStore from "../Stores/use-auth-store";
 import Scarcity from "../pages/scarcity/Scarcity";
 import Staging from "../pages/Forest/Staging";
 import DesertStaging from "../pages/Desert/DesertStaging";
+import Solutions from "../pages/solutions/Solutions";
 
 const RoutesProject = ()  => {
     const { logout } = useAuthStore();
@@ -21,6 +22,7 @@ const RoutesProject = ()  => {
                 <Route path="/scarcity"  element={<Scarcity onLogout={logout} />}  />
                 <Route path="/staging" element={<Staging onLogout={logout} />} />
                 <Route path="/desertstaging" element={<DesertStaging onLogout={logout} />} />
+                <Route path="/solution" element={<Solutions onLogout={logout} />} />
             </Routes>
         </BrowserRouter>
     )
