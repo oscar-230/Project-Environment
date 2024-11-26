@@ -56,6 +56,7 @@ const Car = (props) => {
                 camMaxDis={-10}
                 maxVelLimit={3.5}
                 position={[13, 15, 1]}
+                type="dynamic"
             >
                 <group
                     ref={group}
