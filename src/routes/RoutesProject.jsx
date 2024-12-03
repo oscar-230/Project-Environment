@@ -8,7 +8,7 @@ import Scarcity from "../pages/scarcity/Scarcity";
 import Staging from "../pages/Forest/Staging";
 import DesertStaging from "../pages/Desert/DesertStaging";
 import Solutions from "../pages/solutions/Solutions";
-import Quiz from "../pages/Quizzes/Quiz";
+import Quiz from "../pages/quizzes/Quiz";
 
 const RoutesProject = ()  => {
     const { logout } = useAuthStore();

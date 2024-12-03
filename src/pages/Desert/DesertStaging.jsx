@@ -27,7 +27,7 @@ const DesertStaging = ({ onLogout }) => {
   const handleAudio = () => {
     if (audioRef.current) {
       audioRef.current.play();
-      audioRef.current.setVolume(0);
+      audioRef.current.setVolume(1);
     }
   };
 
