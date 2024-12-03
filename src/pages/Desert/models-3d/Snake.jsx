@@ -25,12 +25,12 @@ const Snake = (props) => {
   }, [actions, currentAction]);
 
   return (
-    <RigidBody type="dynamic" colliders="trimesh">
+    <RigidBody type="fixed" colliders="trimesh">
       <group
         ref={group}
         {...props}
         dispose={null}
-        position={[20, 11.8, 15]}
+        position={[20, 11.6, 15]}
         rotation={[0, 10, 0]}
       >
         <group name="Root_Scene">
@@ -53,42 +53,49 @@ const Snake = (props) => {
                 geometry={nodes.Snake_1.geometry}
                 material={materials.DarkGreen}
                 skeleton={nodes.Snake_1.skeleton}
+                castShadow
               />
               <skinnedMesh
                 name="Snake_2"
                 geometry={nodes.Snake_2.geometry}
                 material={materials.LightGreen}
                 skeleton={nodes.Snake_2.skeleton}
+                castShadow
               />
               <skinnedMesh
                 name="Snake_3"
                 geometry={nodes.Snake_3.geometry}
                 material={materials.Red}
                 skeleton={nodes.Snake_3.skeleton}
+                castShadow
               />
               <skinnedMesh
                 name="Snake_4"
                 geometry={nodes.Snake_4.geometry}
                 material={materials.Teeth}
                 skeleton={nodes.Snake_4.skeleton}
+                castShadow
               />
               <skinnedMesh
                 name="Snake_5"
                 geometry={nodes.Snake_5.geometry}
                 material={materials.Purple}
                 skeleton={nodes.Snake_5.skeleton}
+                castShadow
               />
               <skinnedMesh
                 name="Snake_6"
                 geometry={nodes.Snake_6.geometry}
                 material={materials.Yellow}
                 skeleton={nodes.Snake_6.skeleton}
+                castShadow
               />
               <skinnedMesh
                 name="Snake_7"
                 geometry={nodes.Snake_7.geometry}
                 material={materials.DarkRed}
                 skeleton={nodes.Snake_7.skeleton}
+                castShadow
               />
             </group>
           </group>

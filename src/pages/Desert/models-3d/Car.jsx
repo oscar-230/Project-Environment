@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useGLTF, useAnimations, KeyboardControls } from '@react-three/drei';
-import { RigidBody } from '@react-three/rapier';
 import * as THREE from 'three';
 import Ecctrl from 'ecctrl';
 
@@ -64,7 +63,7 @@ const Car = (props) => {
                     dispose={null}
                     scale={0.4}
                     position={[0, -0.6, 0]}
-                    onClick={handleCar} 
+                    onClick={handleCar}   
                 >
                     <group name="Sketchfab_Scene">
                         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]} scale={0.379}>
@@ -83,6 +82,8 @@ const Car = (props) => {
                                                     geometry={nodes.Object_78.geometry}
                                                     material={materials.Mat_Robot}
                                                     skeleton={nodes.Object_78.skeleton}
+                                                    castShadow
+                                                    receiveShadow
                                                 />
                                                 <group name="Object_77" rotation={[-Math.PI / 2, 0, 0]} scale={100} />
                                             </group>
