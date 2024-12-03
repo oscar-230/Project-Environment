@@ -19,7 +19,7 @@ const Navbar = ({ onLogout }) => {
         <a href="#home" onClick={() => navigate("/home")}>Inicio</a>
         <a href="#problem" onClick={() => navigate("/problem")}>Problemas</a>
         <a href="#solutions" onClick={() => navigate("/solution")}>Soluciones</a>
-        <a href="#quizz">Quizzes</a>
+        <a href="#quiz" onClick={() => navigate("/quiz")}>Quizzes</a>
         <a href="#options">Opciones</a>
       </nav>
       <button className="logout-button" onClick={handleLogout}>Salir</button>
@@ -27,4 +27,4 @@ const Navbar = ({ onLogout }) => {
   );
 };
 
-export default Navbar
+export default Navbar;

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useGLTF, useAnimations } from '@react-three/drei';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useGLTF, useAnimations, PositionalAudio } from '@react-three/drei';
 import { RigidBody } from '@react-three/rapier';
 import * as THREE from 'three';
 
@@ -7,7 +7,6 @@ const Snake = (props) => {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF('/models/Snake.glb');
   const { actions } = useAnimations(animations, group);
-
   const [currentAction] = useState("SnakeArmature|Snake_Idle");
 
   useEffect(() => {
