@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Html, Environment, Stars, Text3D } from "@react-three/drei";
+import React, { useState, useRef } from "react";
+import { Html, Environment, Stars, Text3D, PositionalAudio } from "@react-three/drei";
 import { Suspense } from "react";
 import "font-awesome/css/font-awesome.min.css";
 import "../../../Styles/DesertEnvironment.css"
@@ -14,6 +14,8 @@ const DesertEnvironment = ({ isDay, setIsDay }) => {
   ]); 
 
   const [showText1, setShowText1] = useState(false); 
+  const audioSnakeRef = useRef();
+  const audioOasisRef = useRef();
 
   const toggleNight = () => {
     setIsDay(!isDay);
@@ -21,11 +23,27 @@ const DesertEnvironment = ({ isDay, setIsDay }) => {
 
   const toggleText1 = () => {
     setShowText1(!showText1); 
+    if (audioSnakeRef.current) {
+      if (showText1) {
+        audioSnakeRef.current.stop();
+      } else {
+        audioSnakeRef.current.play()
+        audioSnakeRef.current.setVolume(10)
+      }
+    }
   };
 
   const toggleText2 = () => {
     setShowText2(!showText2); 
     setTextIndex(0);
+    if (audioOasisRef.current) {
+      if (showText2) {
+        audioOasisRef.current.stop();
+      } else {
+        audioOasisRef.current.play();
+        audioOasisRef.current.setVolume(10);
+      }
+    }
   };
 
   const handleArrowClick = () => {
@@ -193,6 +211,20 @@ const DesertEnvironment = ({ isDay, setIsDay }) => {
           </div>
         </Html>
       )}
+
+      <PositionalAudio
+        ref={audioSnakeRef}
+        loop
+        url="/sounds/snake.mp3" 
+        distance={5}
+      /> 
+
+      <PositionalAudio
+        ref={audioOasisRef}
+        loop
+        url="/sounds/water-drops.mp3" 
+        distance={5}
+      />     
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Navbar from "../../components/Navbar";
 import { Canvas } from "@react-three/fiber";
 import DesertStagingModel from "./models-3d/DesertStagingModel";
@@ -10,6 +10,8 @@ import { Suspense } from 'react';
 import DesertEnvironment from "./components/DesertEnvironment";
 import Instructions from "./components/Instructions";
 import Snake from "./models-3d/Snake";
+import { PositionalAudio } from "@react-three/drei";
+import Video from "./components/Video";
 
 const DesertStaging = ({ onLogout }) => {
   const [isDay, setIsDay] = useState(true);
@@ -19,6 +21,16 @@ const DesertStaging = ({ onLogout }) => {
   const handleKeyPress = () => {
     setDarkBackground(false);
   };
+
+  const audioRef = useRef();
+
+  const handleAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+      audioRef.current.setVolume(0);
+    }
+  };
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,6 +45,7 @@ const DesertStaging = ({ onLogout }) => {
       }
       if (darkBackground) {
         handleKeyPress();
+        handleAudio();
       }
     };
   
@@ -62,7 +75,7 @@ const DesertStaging = ({ onLogout }) => {
         )}
 
         <div className="canvas-container-staging">
-          <Canvas shadows>
+          <Canvas shadows >
               <DesertEnvironment isDay={isDay} setIsDay={setIsDay}/>
               <Suspense fallback={null}>  
                 <Lights />
@@ -71,6 +84,10 @@ const DesertStaging = ({ onLogout }) => {
                   <Car />
                   <Snake />
                 </Physics>
+                <Video />
+                <group>
+                  <PositionalAudio ref={audioRef} loop url="/sounds/desert.mp3" distance={1} />
+                </group>
               </Suspense>
           </Canvas>
         </div>

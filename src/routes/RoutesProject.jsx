@@ -8,6 +8,7 @@ import Scarcity from "../pages/scarcity/Scarcity";
 import Staging from "../pages/Forest/Staging";
 import DesertStaging from "../pages/Desert/DesertStaging";
 import Solutions from "../pages/solutions/Solutions";
+import Quiz from "../pages/Quizzes/Quiz";
 
 const RoutesProject = ()  => {
     const { logout } = useAuthStore();
@@ -23,6 +24,7 @@ const RoutesProject = ()  => {
                 <Route path="/staging" element={<Staging onLogout={logout} />} />
                 <Route path="/desertstaging" element={<DesertStaging onLogout={logout} />} />
                 <Route path="/solution" element={<Solutions onLogout={logout} />} />
+                <Route path="/quiz" element={<Quiz onLogout={logout} />} />
             </Routes>
         </BrowserRouter>
     )
