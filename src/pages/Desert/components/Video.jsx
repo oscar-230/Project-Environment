@@ -21,7 +21,7 @@ const Video = (props) => {
 
     return (
         <mesh {...props} 
-            position={[22.8,20,-22.4]} 
+            position={[23,20,-22]} 
             scale={2.5}
             rotation={[0,-0.7,0]}
             radius={0.5}

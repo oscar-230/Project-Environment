@@ -12,6 +12,7 @@ import Instructions from "./components/Instructions";
 import Snake from "./models-3d/Snake";
 import { PositionalAudio } from "@react-three/drei";
 import Video from "./components/Video";
+import Alpaca from "./models-3d/Alpaca";
 
 const DesertStaging = ({ onLogout }) => {
   const [isDay, setIsDay] = useState(true);
@@ -27,7 +28,7 @@ const DesertStaging = ({ onLogout }) => {
   const handleAudio = () => {
     if (audioRef.current) {
       audioRef.current.play();
-      audioRef.current.setVolume(1);
+      audioRef.current.setVolume(2);
     }
   };
 
@@ -83,6 +84,7 @@ const DesertStaging = ({ onLogout }) => {
                   <DesertStagingModel />
                   <Car />
                   <Snake />
+                  <Alpaca />
                 </Physics>
                 <Video />
                 <group>

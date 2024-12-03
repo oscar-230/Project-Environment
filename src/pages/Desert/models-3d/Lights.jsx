@@ -1,18 +1,25 @@
+import { useHelper } from "@react-three/drei";
+import { useRef } from "react";
+import { DirectionalLightHelper } from "three";
+
 const Lights = () => {
+  const directionalLightHelper = useRef();
+  useHelper(directionalLightHelper, DirectionalLightHelper);
+
   return (
     <>
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={1} />
       <directionalLight
-        position={[10, 40, 50]}
-        intensity={1}
-        castShadow // Esta luz proyectará sombras
-        shadow-mapSize-width={1024} // Ajuste para la calidad de las sombras
-        shadow-mapSize-height={1024}
-        shadow-camera-far={50}
-        shadow-camera-left={-10}
-        shadow-camera-right={10}
-        shadow-camera-top={10}
-        shadow-camera-bottom={-10}
+        //ref={directionalLightHelper}
+        color={"white"}
+        position={[40, 40, 30]}
+        intensity={15}
+        castShadow
+        shadow-mapSize={[2048, 2048]}
+        shadow-camera-left={-40}
+        shadow-camera-right={40}
+        shadow-camera-top={35}
+        shadow-camera-bottom={-15}
       />
     </>
   );
