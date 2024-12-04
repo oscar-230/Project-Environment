@@ -1,19 +1,29 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Html, Environment, Stars, Text3D, PositionalAudio } from "@react-three/drei";
 import { Suspense } from "react";
 import "font-awesome/css/font-awesome.min.css";
 import "../../../Styles/DesertEnvironment.css"
 
 const DesertEnvironment = ({ isDay, setIsDay }) => {
+  const navigate = useNavigate();
+  const [showText1, setShowText1] = useState(false); 
   const [showText2, setShowText2] = useState(false); // Estado para controlar el texto de Lake
-  const [textIndex, setTextIndex] = useState(0); // Estado para el índice del texto
+  const [showText3, setShowText3] = useState(false);
   const [text, setText] = useState([
     "¡Mira cómo se reduce el agua en el oasis! Si seguimos así, nuestros recursos hídricos disminuirán drásticamente. El futuro de muchas regiones depende de nuestro esfuerzo por ahorrar agua. ¡No dejemos que esto suceda!",
     "Si seguimos desperdiciando agua a este ritmo, los desiertos avanzarán y los ríos se secarán. Muchas comunidades ya enfrentan escasez, y nosotros podemos ayudar a evitarlo. ¡Cada gota cuenta!",
-   "Para solucionar la escasez de agua, debemos reparar fugas, usar dispositivos ahorradores y fomentar el uso de tecnologías como la recolección de agua de lluvia. Además, apoyar la reforestación ayuda a mantener los ciclos naturales del agua. ¡Actuar ahora es clave para asegurar agua limpia para todos!",
+    "Para solucionar la escasez de agua, debemos reparar fugas, usar dispositivos ahorradores y fomentar el uso de tecnologías como la recolección de agua de lluvia. Además, apoyar la reforestación ayuda a mantener los ciclos naturales del agua. ¡Actuar ahora es clave para asegurar agua limpia para todos!",
   ]); 
+  const [textFarmer, setTextFarmer] = useState([
+    "Hola",
+    "Chao",
+    "¿Quires ir?"
+  ])
 
-  const [showText1, setShowText1] = useState(false); 
+  const [textIndex, setTextIndex] = useState(0); // Estado para el índice del texto
+  const [textIndexFarmer, setTextIndexFarmer] = useState(0);
+
   const audioSnakeRef = useRef();
   const audioOasisRef = useRef();
 
@@ -46,8 +56,17 @@ const DesertEnvironment = ({ isDay, setIsDay }) => {
     }
   };
 
+  const toogleText3 = () => {
+    setShowText3(!showText3);
+    setTextIndexFarmer(0);
+  };
+
   const handleArrowClick = () => {
     setTextIndex((prevIndex) => (prevIndex + 1) % text.length);
+  };
+
+  const handleArrowClickFarmer = () => {
+    setTextIndexFarmer((prevIndex) => (prevIndex + 1) % textFarmer.length);
   };
 
   const handleCloseText = () => {
@@ -80,8 +99,6 @@ const DesertEnvironment = ({ isDay, setIsDay }) => {
       {!isDay && (
         <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
       )}
-
-
 
       {/* Snake Button*/}
       <Html position={[20, 14.6, 15]} scale={2} transform style={{ zIndex: 10 }} rotation={[0, 3.5, 0]}>
@@ -208,6 +225,112 @@ const DesertEnvironment = ({ isDay, setIsDay }) => {
                 }}
               ></i>
             )}
+          </div>
+        </Html>
+      )}
+
+      {/* Farmer Buton */}
+      <Html 
+        position={[2.1,13.7,-20]} 
+        scale={2} 
+        transform 
+        style={{ zIndex: 10 }} 
+        rotation={[0, 0, 0]}>
+        <button
+          className="action-button"
+          onClick={toogleText3}
+          style={{
+            color: showText3 ? "red" : "#efb810",
+            borderRadius: "50px",
+            fontSize: "20px",
+            outline: "none",
+            border: "none",
+            zIndex: 10,
+            background: "transparent",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <i className={showText3 ? "fa fa-times" : "fa fa-question-circle"}></i>
+        </button>
+      </Html>
+
+      {showText3 && (
+        <Html
+          position={[2.2,16,-20]} 
+          scale={2}
+          transform 
+          style={{ zIndex: 10 }} 
+          rotation={[0, 0.2, 0]}
+        >
+          <div
+            style={{
+              color: "white",
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+              padding: "5px",
+              borderRadius: "5px",
+              fontSize: "9px",
+              maxWidth: "200px",
+              textAlign: "center",
+              position: "relative",
+              lineHeight: "1.3",
+            }}
+          >
+            
+            <p>{textFarmer[textIndexFarmer]}</p>
+            {textIndexFarmer === textFarmer.length - 1 && (
+              <button
+                className="action-button-navigate"
+                onClick={() => navigate("/home")} //Nuevo entorno
+                style={{
+                  position: "absolute",
+                  bottom: "4px",
+                  right: "17px",
+                  fontSize: "7px",
+                  outline: "none",
+                  border: "none",
+                  borderRadius: "5px",
+                  backgroundColor: "rgba(60, 239, 22, 0.7)",
+                  color: "white",
+                  cursor: "pointer",
+                }}
+              >
+                Si
+              </button>
+            )}
+
+            {/* Flecha izquierda para retroceder */}
+            {textIndexFarmer > 0 && (
+              <i
+                className="fa fa-arrow-left icon-hover"
+                onClick={() => setTextIndexFarmer((prevIndex) => prevIndex - 1)}
+                style={{
+                  position: "absolute",
+                  bottom: "5px",
+                  left: "5px",
+                  fontSize: "7px",
+                  cursor: "pointer",
+                }}
+              ></i>
+              
+            )}
+            
+            {/* Flecha derecha para avanzar */}
+            {textIndexFarmer < textFarmer.length - 1 && (
+              <i
+                className="fa fa-arrow-right icon-hover"
+                onClick={handleArrowClickFarmer}
+                style={{
+                  position: "absolute",
+                  bottom: "5px",
+                  right: "5px",
+                  fontSize: "7px",
+                  cursor: "pointer",
+                }}
+              ></i>
+            )}
+            
           </div>
         </Html>
       )}

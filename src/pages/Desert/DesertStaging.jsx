@@ -13,6 +13,8 @@ import Snake from "./models-3d/Snake";
 import { PositionalAudio } from "@react-three/drei";
 import Video from "./components/Video";
 import Alpaca from "./models-3d/Alpaca";
+import ProstProcessing from "./postprocessing/PostProcessing";
+import Farmer from "./models-3d/Farmer";
 
 const DesertStaging = ({ onLogout }) => {
   const [isDay, setIsDay] = useState(true);
@@ -78,12 +80,14 @@ const DesertStaging = ({ onLogout }) => {
         <div className="canvas-container-staging">
           <Canvas shadows >
               <DesertEnvironment isDay={isDay} setIsDay={setIsDay}/>
-              <Suspense fallback={null}>  
+              <Suspense fallback={null}> 
+                <ProstProcessing />
                 <Lights />
                 <Physics debug={false}>
                   <DesertStagingModel />
                   <Car />
                   <Snake />
+                  <Farmer />
                   <Alpaca />
                 </Physics>
                 <Video />
