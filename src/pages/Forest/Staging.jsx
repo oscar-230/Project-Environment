@@ -9,6 +9,7 @@ import Controls from "../problem/models-3d/Controls";
 import Lights from "../problem/models-3d/Lights";
 import "../../Styles/Staging.css";
 import { useGLTF } from "@react-three/drei";
+import { PositionalAudio } from "@react-three/drei";
 
 const Boat = () => {
   const boatRef = useRef();
@@ -60,7 +61,6 @@ const Boat = () => {
   // Cargar modelo del bote
   const { scene } = useGLTF("/models/Boat.glb");
 
-
   return (
     <RigidBody ref={boatRef} type="dynamic" restitution={0.5} friction={0.8}>
       <primitive
@@ -88,6 +88,7 @@ const Staging = ({ onLogout }) => {
   );
 
   const [isDay, setIsDay] = useState(true);
+  const audioRef = useRef();
 
   // Alternar entre día y noche
   const toggleDayNight = (mode) => {
@@ -134,8 +135,21 @@ const Staging = ({ onLogout }) => {
                   <Lights />
                   <Forest />
                   <Boat /> {/* Bote con físicas */}
+                  {/* Sonido ambiental */}
+                  <group>
+                    <PositionalAudio
+                      ref={audioRef}
+                      url="/sounds/river-nature.mp3"
+                      loop
+                      autoplay
+                      distance={10} // Ajusta el rango según tus necesidades
+                      position={[0, 1, 0]} // Posición del audio en la escena
+                    />
+                  </group>
                   <Environment
-                    files={isDay ? "/hdris/sky/sky.hdr" : "/hdris/sky/night_sky.hdr"}
+                    files={
+                      isDay ? "/hdris/sky/sky.hdr" : "/hdris/sky/night_sky.hdr"
+                    }
                     background={true}
                     intensity={0.5}
                   />
@@ -143,10 +157,13 @@ const Staging = ({ onLogout }) => {
                   <RigidBody type="fixed" restitution={0.5} friction={0.8}>
                     <mesh position={[0, -0.8, 0]}>
                       <boxGeometry args={[50, 1, 50]} />
-                      <meshStandardMaterial color="blue" transparent opacity={0} />
+                      <meshStandardMaterial
+                        color="blue"
+                        transparent
+                        opacity={0}
+                      />
                     </mesh>
                   </RigidBody>
-
                   {/* Botón para alternar entre día y noche */}
                   <Html position={[50, 10, 10]} center>
                     <button
