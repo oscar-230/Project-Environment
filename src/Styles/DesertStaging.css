@@ -24,3 +24,12 @@
     background-color: rgb(153, 133, 114);
     transform: translateX(-50%) scale(1.1); /* Aumenta el tamaño uniformemente */
 }
+
+.action-button-navigate {
+    transition: transform 0.3s ease;
+}
+
+
+.action-button-navigate:hover {
+    transform: scale(1.1);
+}

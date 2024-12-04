@@ -1,5 +1,5 @@
 .icon-hover:hover {
-    transform: scale(1.2);  /* Aumenta el tamaño del ícono */
-    color: #ACC746;         /* Cambia el color cuando pasa el mouse por encima */
-    cursor: pointer;       /* Cambia el cursor a puntero */
-  }
+  transform: scale(1.2);  /* Aumenta el tamaño del ícono */
+  color: #ACC746;         /* Cambia el color cuando pasa el mouse por encima */
+  cursor: pointer;       /* Cambia el cursor a puntero */
+}
