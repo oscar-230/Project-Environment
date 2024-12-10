@@ -120,6 +120,23 @@ const InteractiveButton = ({
               </button>
             )}
 
+            {hasConditionalButtons && textIndex === 3 && (
+              <button
+                className="button"
+                onClick={() => onShowPuzzle(3)}
+                style={{
+                  marginBottom:"5px",
+                  padding: "5px",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                }}
+              >
+                Completar
+              </button>
+            )}
+
             {textArray && textIndex > 0 && (
               <i
                 className="fa fa-arrow-left icon-hover"

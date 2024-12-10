@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Html, PositionalAudio } from "@react-three/drei";
+import { PositionalAudio } from "@react-three/drei";
 import Text3DHeader from "./Text3DHeader";
 import EnvironmentSetup from "./EnvironmentSetup";
 import InteractiveButton from "./InteractiveButton";
