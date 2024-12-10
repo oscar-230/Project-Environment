@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../../components/Navbar";
 import { Canvas } from "@react-three/fiber";
 import DesertStagingModel from "./models-3d/DesertStagingModel";
@@ -12,7 +12,6 @@ import Instructions from "./components/Instructions";
 import Snake from "./models-3d/Snake";
 import { PositionalAudio } from "@react-three/drei";
 import Video from "./components/Video";
-import Alpaca from "./models-3d/Alpaca";
 import ProstProcessing from "./postprocessing/PostProcessing";
 import Farmer from "./models-3d/Farmer";
 
@@ -88,7 +87,6 @@ const DesertStaging = ({ onLogout }) => {
                   <Car />
                   <Snake />
                   <Farmer />
-                  <Alpaca />
                 </Physics>
                 <Video />
                 <group>

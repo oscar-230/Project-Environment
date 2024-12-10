@@ -29,8 +29,10 @@ const Farmer = (props) => {
     <RigidBody type="fixed" colliders="trimesh">
     <group ref={group} {...props} 
         dispose={null}
-        position={[2.1,10.2,-20]} 
-        scale={1.1} >
+        position={[-18,11.8,-12]} 
+        scale={1.1} 
+        rotation={[0,1,0]}
+        >
       <group name="Root_Scene">
         <group name="RootNode">
           <group name="CharacterArmature" rotation={[-Math.PI / 2, 0, 0]} scale={100}>
