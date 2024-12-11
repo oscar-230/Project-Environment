@@ -15,7 +15,7 @@ const useQuizStore = create((set) => ({
       },
     })),
 
-  setPuzzleProgress: (quizId, correctPieces, incorrectPieces, percentage) =>
+  setPuzzleProgress: (quizId, correctPieces, incorrectPieces, percentage, score) =>
     set((state) => {
       console.log("Actualizando quiz state:", { correctPieces, incorrectPieces, percentage });
       return {
@@ -26,6 +26,7 @@ const useQuizStore = create((set) => ({
             correctPieces,
             incorrectPieces,
             percentageQuizCompleted: percentage,
+            score,
           },
         },
       };
