@@ -1,47 +1,59 @@
 import { create } from "zustand";
 
 const useQuizStore = create((set) => ({
-  quiz: {
-    correctPieces: 0,
-    incorrectPieces: 0,
-    percentageQuizCompleted: 0,
+  quizzes: {
+    1: { correctPieces: 0, incorrectPieces: 0, percentageQuizCompleted: 0 },
+    2: { correctPieces: 0, incorrectPieces: 0, percentageQuizCompleted: 0 },
+    3: { correctPieces: 0, incorrectPieces: 0, percentageQuizCompleted: 0 },
   },
 
-  setQuiz: (quizUpdates) =>
+  setQuiz: (quizId, quizUpdates) =>
     set((state) => ({
-      quiz: { ...state.quiz, ...quizUpdates },
+      quizzes: {
+        ...state.quizzes,
+        [quizId]: { ...state.quizzes[quizId], ...quizUpdates },
+      },
     })),
 
-  setPuzzleProgress: (correctPieces, incorrectPieces, percentage) =>
+  setPuzzleProgress: (quizId, correctPieces, incorrectPieces, percentage) =>
     set((state) => {
       console.log("Actualizando quiz state:", { correctPieces, incorrectPieces, percentage });
       return {
-          quiz: {
-              ...state.quiz,
-              correctPieces,
-              incorrectPieces,
-              percentageQuizCompleted: percentage,
+        quizzes: {
+          ...state.quizzes,
+          [quizId]: {
+            ...state.quizzes[quizId],
+            correctPieces,
+            incorrectPieces,
+            percentageQuizCompleted: percentage,
           },
+        },
       };
-  }),
+    }),
 
-  clearQuiz: () =>
+  clearQuiz: (quizId) =>
     set({
-      quiz: {
-        correctPieces: 0,
-        incorrectPieces: 0,
-        percentageQuizCompleted: 0,
+      quizzes: {
+        ...state.quizzes,
+        [quizId]: {
+          correctPieces: 0,
+          incorrectPieces: 0,
+          percentageQuizCompleted: 0,
+        },
       },
     }),
 
-  incrementQuizProgress: () =>
+  incrementQuizProgress: (quizId) =>
     set((state) => {
       const newPercentage = Math.min(
-        state.quiz.percentageQuizCompleted + 25,
+        state.quizzes[quizId].percentageQuizCompleted + 25,
         100
       );
       return {
-        quiz: { ...state.quiz, percentageQuizCompleted: newPercentage },
+        quizzes: {
+          ...state.quizzes,
+          [quizId]: { ...state.quizzes[quizId], percentageQuizCompleted: newPercentage },
+        },
       };
     }),
 }));

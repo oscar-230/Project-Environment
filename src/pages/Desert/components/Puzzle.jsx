@@ -76,7 +76,7 @@ const Puzzle = ({ position, onClose, rotation, puzzleId }) => {
         const incorrectPieces = totalPieces - correctPieces;
         const percentage = (correctPieces / totalPieces) * 100;
 
-        useQuizStore.getState().setPuzzleProgress(correctPieces, incorrectPieces, percentage);
+        useQuizStore.getState().setPuzzleProgress(puzzleId, correctPieces, incorrectPieces, percentage);
 
         setScore(score);
         setIsComplete(true);
@@ -146,14 +146,16 @@ const Puzzle = ({ position, onClose, rotation, puzzleId }) => {
                 </div>
 
                 <button
+                    className="puzzle-button-open"
                     style={{
                         padding: '10px 20px',
-                        backgroundColor: 'green',
                         color: 'white',
                         border: 'none',
                         borderRadius: '5px',
                         cursor: 'pointer',
-                        marginLeft: '18px'
+                        fontSize: '15px',
+                        fontWeight: '600',
+                        marginLeft: '5px'
                     }}
                     onClick={handleComplete}
                 >
@@ -161,16 +163,18 @@ const Puzzle = ({ position, onClose, rotation, puzzleId }) => {
                 </button>
 
                 <button
+                    className="puzzle-button-close"
                     style={{
                         padding: '10px 20px',
-                        backgroundColor: 'red',
                         color: 'white',
                         border: 'none',
                         borderRadius: '5px',
+                        fontSize: '15px',
+                        fontWeight: '600',
                         cursor: 'pointer',
                         marginLeft: '30px'
                     }}
-                    onClick={() => onClose(null)}
+                    onClick={handleClose}
                 >
                     Cerrar Puzzle
                 </button>

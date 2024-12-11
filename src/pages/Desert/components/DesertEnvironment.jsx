@@ -51,20 +51,13 @@ const DesertEnvironment = ({ isDay }) => {
         rotation={[0, 1, 0]}
         textArray={[
           "Hola, realiza quizzes",
-          "Rompecabezas 1",
-          "Rompecabezas 2",
-          "Rompecabezas 3",
         ]}
-        onShowPuzzle={(puzzleId) => openPuzzle(puzzleId)}
+        conditionalButtonFarmer={true}
         buttonColor="#efb810"
-        hasConditionalButtons={true}
         specialStyle={{ marginBottom: "0px" }}
       />
       <PositionalAudio ref={audioSnakeRef} loop url="/sounds/snake.mp3" distance={5} />
       <PositionalAudio ref={audioOasisRef} loop url="/sounds/water-drops.mp3" distance={5} />
-      
-      {/* Aquí se pasan diferentes ID según el puzzle que se quiera mostrar */}
-      {showPuzzle && <Puzzle position={[-16, 20, -19]} onClose={closePuzzle} rotation={[0, 1, 0]} puzzleId={currentPuzzle} />}
     </>
   );
 };
