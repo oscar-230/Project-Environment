@@ -96,13 +96,14 @@ const InteractiveButton = ({
                 style={{
                   marginBottom:"5px",
                   pdding: "5px",
+                  fontSize: "6px",
                   color: "white",
                   border: "none",
                   borderRadius: "5px",
                   cursor: "pointer",
                 }}
               >
-                Completar
+                Intentar
               </button>
             )}
 
@@ -113,13 +114,14 @@ const InteractiveButton = ({
                 style={{
                   marginBottom:"5px",
                   padding: "5px",
+                  fontSize: "6px",
                   color: "white",
                   border: "none",
                   borderRadius: "5px",
                   cursor: "pointer",
                 }}
               >
-                Completar
+                Intentar
               </button>
             )}
 
@@ -130,13 +132,14 @@ const InteractiveButton = ({
                 style={{
                   marginBottom:"5px",
                   padding: "5px",
+                  fontSize: "6px",
                   color: "white",
                   border: "none",
                   borderRadius: "5px",
                   cursor: "pointer",
                 }}
               >
-                Completar
+                Intentar
               </button>
             )}
 

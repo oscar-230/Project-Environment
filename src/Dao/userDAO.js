@@ -62,6 +62,16 @@ class userDAO {
       });
   }
 
+  async getUsers() {
+    try {
+      const querySnapshot = await getDocs(this.collectionRef);
+      return querySnapshot;  // Retorna el snapshot de la consulta
+    } catch (error) {
+      console.error("Error fetching users: ", error);
+      throw error;  // Lanzar el error para manejarlo en el componente
+    }
+  }
+  
   // Métodos para manejar la colección de quizzes
 
   // Obtener un resultado de quiz por userId y quizId

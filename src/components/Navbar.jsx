@@ -26,7 +26,7 @@ const Navbar = ({ onLogout }) => {
         <a href="#problem" onClick={() => navigate("/problem")}>Problemas</a>
         <a href="#solutions" onClick={() => navigate("/solution")}>Soluciones</a>
         <a href="#quiz" onClick={() => navigate("/quiz")}>Quizzes</a>
-        <a href="#options">Opciones</a>
+        <a href="#options" onClick={() => navigate("/clasification")} >Clasificación</a>
       </nav>
 
       {/* Verifica si la URL de la foto es válida */}

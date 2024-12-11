@@ -10,6 +10,7 @@ import DesertStaging from "../pages/Desert/DesertStaging";
 import Solutions from "../pages/solutions/Solutions";
 import Quiz from "../pages/quizzes/Quiz";
 import World from "../pages/quizNature/World";
+import Clasification from "../pages/clasification/Clasification";
 
 const RoutesProject = ()  => {
     const { logout } = useAuthStore();
@@ -27,6 +28,7 @@ const RoutesProject = ()  => {
                 <Route path="/solution" element={<Solutions onLogout={logout} />} />
                 <Route path="/quiz" element={<Quiz onLogout={logout} />} />
                 <Route path="/quiznature" element={<World onLogout={logout} />} />
+                <Route path="/clasification" element={<Clasification onLogout={logout} />} />
             </Routes>
         </BrowserRouter>
     )

@@ -7,8 +7,24 @@ const useQuizStore = create((set, get) => ({
     1: { correctPieces: 0, incorrectPieces: 0, percentageQuizCompleted: 0 },
     2: { correctPieces: 0, incorrectPieces: 0, percentageQuizCompleted: 0 },
     3: { correctPieces: 0, incorrectPieces: 0, percentageQuizCompleted: 0 },
-  },
-  
+  },  
+  points: 0,
+  claimedIcons: [],
+
+  addPoints: (points) =>
+    set((state) => ({ points: state.points + points })),
+
+  claimIcon: (iconId, cost) =>
+    set((state) => {
+      if (state.points >= cost) {
+        return {
+          points: state.points - cost,
+          claimedIcons: [...state.claimedIcons, iconId],
+        };
+      }
+      console.warn("No tienes suficientes puntos para reclamar este ícono");
+      return state;
+    }),
 
   setQuiz: (quizId, quizUpdates) =>
     set((state) => ({

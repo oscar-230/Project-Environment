@@ -1,0 +1,56 @@
+/* Estilos generales para la tabla */
+/* Estilo para la tabla dentro de un contenedor */
+.table-container {
+    margin: 40px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hacemos que la tabla sea scrollable si hay más de 10 filas */
+.table-wrapper {
+    max-height: 450px;  /* Altura máxima que ocupa la tabla */
+    overflow-y: auto;   /* Permite el scroll vertical */
+}
+
+/* Estilo de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Estilos para las celdas */
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estilo para el encabezado */
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Estilo para las filas */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+.footer-cla {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-size: 12px;
+}

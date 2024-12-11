@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useQuizStore from "../../Stores/use-quiz-store";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import "../../Styles/Quiz.css";
+import AnimalShop from "./components/AnimlaShop";
+import Modal from "./components/Modal";
 
 const Quiz = ({ onLogout }) => {
   const quizIds = [1, 2, 3];
@@ -16,6 +18,10 @@ const Quiz = ({ onLogout }) => {
     3: "/imgs/agua2.jpg",
   };
 
+  const [isShopOpen, setIsShopOpen] = useState(false);
+  const openShop = () => setIsShopOpen(true);
+  const closeShop = () => setIsShopOpen(false);
+
   // Cargar los resultados del quiz cuando el componente se monta
   useEffect(() => {
     loadQuizResults(); // Cargar los resultados desde la base de datos
@@ -25,7 +31,7 @@ const Quiz = ({ onLogout }) => {
     <div>
       <Navbar onLogout={onLogout} />
       <div className="quiz-container">
-        <h1 className="quiz-header">Quizzes</h1>
+        <h1 className="quiz-header"></h1>
         <div className="quiz-cards-container">
           {quizIds.map((quizId) => {
             // Acceder a los datos del quiz desde el store
@@ -66,6 +72,12 @@ const Quiz = ({ onLogout }) => {
             );
           })}
         </div>
+        <button className="open-shop-button" onClick={openShop}>
+          Abrir Tienda
+        </button>
+        <Modal isOpen={isShopOpen} onClose={closeShop}>
+          <AnimalShop />
+        </Modal>
       </div>
       <Footer />
     </div>

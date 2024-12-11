@@ -7,7 +7,7 @@
   min-height: 80vh;  
   background-color: #f5f5f5;
   padding: 20px;
-  margin-top: 20px; 
+  margin-top: 10px; 
 }
 
 .quiz-header {
@@ -81,4 +81,21 @@
 
 .quiz-card-button:focus {
   outline: none;
+}
+
+.open-shop-button {
+  margin-top: 40px;
+  display: block;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.open-shop-button:hover {
+  background-color: #45a049;
 }
