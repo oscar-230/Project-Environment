@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Html } from "@react-three/drei";
 import "../../../Styles/InteractiveButton.css";
+import { useNavigate } from "react-router-dom";
 
 const InteractiveButton = ({
     position, 
@@ -12,10 +13,12 @@ const InteractiveButton = ({
     buttonColor, 
     onShowPuzzle,
     hasConditionalButtons = false,
+    conditionalButtonFarmer = false,
     specialStyle = {}
   }) => {
   const [showText, setShowText] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
+  const navigate = useNavigate();
 
   const toggleText = () => {
     setShowText(!showText);
@@ -134,6 +137,23 @@ const InteractiveButton = ({
                 }}
               >
                 Completar
+              </button>
+            )}
+
+            {conditionalButtonFarmer && (
+              <button
+                className="button"
+                onClick={() => navigate("/quiznature")}
+                style={{
+                  marginTop: "10px",
+                  padding: "5px",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                }}
+              >
+                Vamos
               </button>
             )}
 

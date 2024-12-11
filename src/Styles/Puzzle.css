@@ -63,3 +63,21 @@
 .feedback-message.visible {
     opacity: 1;
 }
+
+.puzzle-button-open {
+    background-color: green;
+    transition: background-color 0.3s ease;
+}
+
+.puzzle-button-open:hover {
+    background-color: rgb(2, 204, 19);
+}
+
+.puzzle-button-close {
+    background-color: red;
+    transition: background-color 0.3s ease;
+}
+
+.puzzle-button-close:hover {
+    background-color: rgb(255, 122, 122);
+}
