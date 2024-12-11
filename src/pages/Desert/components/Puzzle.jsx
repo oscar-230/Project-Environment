@@ -76,7 +76,7 @@ const Puzzle = ({ position, onClose, rotation, puzzleId }) => {
         const incorrectPieces = totalPieces - correctPieces;
         const percentage = (correctPieces / totalPieces) * 100;
 
-        useQuizStore.getState().setPuzzleProgress(puzzleId, correctPieces, incorrectPieces, percentage);
+        useQuizStore.getState().setPuzzleProgress(puzzleId, correctPieces, incorrectPieces, percentage, score);
 
         setScore(score);
         setIsComplete(true);

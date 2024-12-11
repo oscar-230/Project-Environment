@@ -2,7 +2,6 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import "../../Styles/Quiz.css";
 import useQuizStore from "../../Stores/use-quiz-store";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Quiz = ({ onLogout }) => {
@@ -15,10 +14,6 @@ const Quiz = ({ onLogout }) => {
         3: "/imgs/agua2.jpg",
     };
 
-    const handleTryQuiz = (quizId) => {
-        console.log(`Intentar el quiz con ID: ${quizId}`);
-        // Aquí puedes agregar la lógica para iniciar el quiz.
-    };
 
     return (
         <div>
@@ -27,7 +22,7 @@ const Quiz = ({ onLogout }) => {
                 <h1 className="quiz-header">Quizzes</h1>
                 <div className="quiz-cards-container">
                     {quizIds.map((quizId) => {
-                        const { correctPieces, incorrectPieces, percentageQuizCompleted } = quizzes[quizId];
+                        const { correctPieces, incorrectPieces, percentageQuizCompleted, score } = quizzes[quizId];
                         const previewImage = imageMap[quizId];
 
                         return (
@@ -38,6 +33,8 @@ const Quiz = ({ onLogout }) => {
                                     <p className="quiz-card-progress">Progreso: {percentageQuizCompleted}%</p>
                                     <p className="quiz-card-progress">Piezas bien: {correctPieces}</p>
                                     <p className="quiz-card-progress">Piezas mal: {incorrectPieces}</p>
+                                    <p className="quiz-card-progress">Puntaje: {score}</p>
+                                    
                                     <button 
                                         className="quiz-card-button"
                                         onClick={() => navigate("/quiznature")}
