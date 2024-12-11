@@ -9,6 +9,8 @@ import Puzzle from "./Puzzle";
 const DesertEnvironment = ({ isDay }) => {
   const audioSnakeRef = useRef();
   const audioOasisRef = useRef();
+  const audioFarmerRef = useRef();
+
   const [showPuzzle, setShowPuzzle] = useState(false);
   const [currentPuzzle, setCurrentPuzzle] = useState(null);
 
@@ -49,8 +51,9 @@ const DesertEnvironment = ({ isDay }) => {
       <InteractiveButton
         position={[-18, 15.3, -12]}
         rotation={[0, 1, 0]}
+        audioRef={audioFarmerRef}
         textArray={[
-          "Hola, realiza quizzes",
+          "¿Estás listo para realizar algunos quizzes?",
         ]}
         conditionalButtonFarmer={true}
         buttonColor="#efb810"
@@ -58,6 +61,7 @@ const DesertEnvironment = ({ isDay }) => {
       />
       <PositionalAudio ref={audioSnakeRef} loop url="/sounds/snake.mp3" distance={5} />
       <PositionalAudio ref={audioOasisRef} loop url="/sounds/water-drops.mp3" distance={5} />
+      <PositionalAudio ref={audioFarmerRef} loop url="/sounds/villager.mp3" distance={5} />
     </>
   );
 };

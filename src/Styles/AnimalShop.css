@@ -1,0 +1,71 @@
+.shop-container {
+    
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .shop-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; 
+    justify-content: center;
+  }
+  
+  .shop-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    width: 120px; 
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    background-color: #fff; 
+    transition: transform 0.2s ease;
+  }
+  
+  .shop-item:hover {
+    transform: scale(1.05); 
+  }
+  
+  .shop-icon {
+    width: 80px; 
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%; 
+    margin-bottom: 10px;
+  }
+  
+  .claimed-label {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .shop-item h3 {
+    font-size: 14px; /* Reducir el tamaño del texto */
+    margin: 5px 0;
+  }
+  
+  .shop-item p {
+    font-size: 12px; /* Reducir el tamaño de los detalles */
+    margin: 5px 0;
+  }
+  
+  .shop-item button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .shop-item button:hover {
+    background-color: #45a049;
+  }
+  
+  .shop-item button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
