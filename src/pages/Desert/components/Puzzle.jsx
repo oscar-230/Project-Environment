@@ -75,16 +75,19 @@ const Puzzle = ({ position, onClose, rotation, puzzleId }) => {
         const totalPieces = pieces.length;
         const incorrectPieces = totalPieces - correctPieces;
         const percentage = (correctPieces / totalPieces) * 100;
-
+    
         useQuizStore.getState().setPuzzleProgress(puzzleId, correctPieces, incorrectPieces, percentage, score);
-
+    
         setScore(score);
         setIsComplete(true);
-
+    
         // Mostrar retroalimentación con animación
         setFeedback({ correctPieces, incorrectPieces, score });
         setFeedbackVisible(true);
-
+    
+        // Llamada para guardar los resultados en Firebase
+        useQuizStore.getState().saveQuizResult(puzzleId); // Aquí se guardan los resultados
+    
         // Ocultar retroalimentación después de la animación
         setTimeout(() => setFeedbackVisible(false), 3000);
         setTimeout(() => setFeedback(null), 3500);

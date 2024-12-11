@@ -1,11 +1,14 @@
 import { create } from "zustand";
+import userDAO from "../Dao/userDAO";
+import useAuthStore from "./use-auth-store";
 
-const useQuizStore = create((set) => ({
+const useQuizStore = create((set, get) => ({
   quizzes: {
     1: { correctPieces: 0, incorrectPieces: 0, percentageQuizCompleted: 0 },
     2: { correctPieces: 0, incorrectPieces: 0, percentageQuizCompleted: 0 },
     3: { correctPieces: 0, incorrectPieces: 0, percentageQuizCompleted: 0 },
   },
+  
 
   setQuiz: (quizId, quizUpdates) =>
     set((state) => ({
@@ -33,7 +36,7 @@ const useQuizStore = create((set) => ({
     }),
 
   clearQuiz: (quizId) =>
-    set({
+    set((state) => ({
       quizzes: {
         ...state.quizzes,
         [quizId]: {
@@ -42,7 +45,7 @@ const useQuizStore = create((set) => ({
           percentageQuizCompleted: 0,
         },
       },
-    }),
+    })),
 
   incrementQuizProgress: (quizId) =>
     set((state) => {
@@ -57,6 +60,42 @@ const useQuizStore = create((set) => ({
         },
       };
     }),
+
+    saveQuizResult: async (quizId) => {
+      const { user } = useAuthStore.getState();
+      const quiz = get().quizzes[quizId];
+      if (!user || !quiz) {
+        console.warn("No user logged in or quiz data missing");
+        return;
+      }
+    
+      try {
+        await userDAO.saveQuizResult(user.uid, { quizId, ...quiz });
+      } catch (error) {
+        console.error("Error saving quiz result: ", error);
+      }
+    },
+    
+    
+  
+
+  loadQuizResults: async () => {
+    const { user } = useAuthStore.getState();
+    if (!user) {
+      console.warn("No user logged in");
+      return;
+    }
+    try {
+      const results = await userDAO.getQuizResultsByUserId(user.uid);
+      const formattedResults = results.reduce((acc, result) => {
+        acc[result.quizId] = result;
+        return acc;
+      }, {});
+      set({ quizzes: formattedResults });
+    } catch (error) {
+      console.error("Error loading quiz results: ", error);
+    }
+  },
 }));
 
 export default useQuizStore;

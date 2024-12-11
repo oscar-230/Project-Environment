@@ -3,6 +3,7 @@ import useAuthStore from "/src/Stores/use-auth-store";
 import "/src/Styles/Login.css";
 import userDAO from "/src/Dao/userDAO";
 import { Navigate, useNavigate } from "react-router-dom";
+import useQuizStore from "../../Stores/use-quiz-store";
 
 const Login = () => {
   const {
@@ -19,8 +20,10 @@ const Login = () => {
   const [isRegister, setIsRegister] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // Importamos la función para cargar los resultados del quiz
+  const { loadQuizResults } = useQuizStore();
 
-  useEffect(() => {
+  useEffect(() => { 
     if (user) {
       const newUser = {
         email: user.email,
@@ -33,12 +36,15 @@ const Login = () => {
         if (!existingUser) {
           await userDAO.createUser(newUser);
         }
+        // Cargar los resultados del quiz después de crear al usuario en Firestore
+        loadQuizResults(); // Esta función cargará los resultados desde Firestore y actualizará el estado en el store
+
         navigate("/home"); 
       };
 
       checkUserExistsAndCreate();
     }
-  }, [user, navigate]);
+  }, [user, navigate, loadQuizResults]);
 
   useEffect(() => {
     observeAuthState();
