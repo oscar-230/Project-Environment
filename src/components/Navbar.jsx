@@ -1,19 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuthStore from "../Stores/use-auth-store";
+import useQuizStore from "../Stores/use-quiz-store"; // Importamos el store
 import "../Styles/Navbar.css"; 
 
 const Navbar = ({ onLogout }) => {
   const navigate = useNavigate();
-  const { user, observeAuthState } = useAuthStore((state) => state); 
+  const { user, observeAuthState } = useAuthStore((state) => state);
+  const { claimedIcons, animalIcons, setSelectedIcon } = useQuizStore(); // Traemos los íconos reclamados y el setSelectedIcon
+
+  const [showIconsMenu, setShowIconsMenu] = useState(false);
+  const [selectedIcon, setSelectedIconState] = useState(user.photoURL || "/path/to/default-image.jpg");
 
   useEffect(() => {
     observeAuthState();
   }, [observeAuthState]);
 
+  useEffect(() => {
+    if (claimedIcons.length > 0) {
+      const selectedIcon = animalIcons.find(icon => icon.id === claimedIcons[claimedIcons.length - 1]);
+      if (selectedIcon) {
+        setSelectedIconState(selectedIcon.iconUrl);  // Actualiza la foto de perfil con el ícono seleccionado
+      }
+    }
+  }, [claimedIcons, animalIcons]);
+
   const handleLogout = async () => {
     await onLogout();
     navigate("/"); // Redirigir a la página de login
+  };
+
+  const toggleIconsMenu = () => setShowIconsMenu(!showIconsMenu);
+
+  const handleIconSelection = (iconUrl) => {
+    setSelectedIconState(iconUrl); // Actualiza el estado local
+    setSelectedIcon(iconUrl); // Actualiza el ícono seleccionado globalmente
+    setShowIconsMenu(false); // Cierra el menú
   };
 
   return (
@@ -29,15 +51,27 @@ const Navbar = ({ onLogout }) => {
         <a href="#options" onClick={() => navigate("/clasification")} >Clasificación</a>
       </nav>
 
-      {/* Verifica si la URL de la foto es válida */}
       {user && user.photoURL ? (
-        <div className="user-info">
+        <div className="user-info" onClick={toggleIconsMenu}>
           <img
-            src={user.photoURL}
+            src={selectedIcon}
             alt="User Profile"
             className="user-photo"
             onError={(e) => e.target.src = "/path/to/default-image.jpg"}
           />
+          {showIconsMenu && (
+            <div className="icons-menu">
+              {claimedIcons.map((iconId) => {
+                const icon = animalIcons.find(item => item.id === iconId);
+                return icon ? (
+                  <div key={icon.id} onClick={() => handleIconSelection(icon.iconUrl)} className="icon-item">
+                    <img src={icon.iconUrl} alt={icon.name} className="icon-thumbnail" />
+                    <span>{icon.name}</span>
+                  </div>
+                ) : null;
+              })}
+            </div>
+          )}
         </div>
       ) : (
         <div className="user-info">
@@ -45,7 +79,6 @@ const Navbar = ({ onLogout }) => {
         </div>
       )}
 
-      {/* Botón de logout */}
       <button className="logout-button" onClick={handleLogout}>Salir</button>
     </header>
   );
