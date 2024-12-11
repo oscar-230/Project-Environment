@@ -49,3 +49,85 @@
   border-radius: 50%; 
   object-fit: cover;
 }
+
+/* Navbar.css */
+
+/* Estilos para la imagen de perfil del usuario */
+.user-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Estilo del menú de íconos cuando se despliega */
+.icons-menu {
+  position: absolute;
+  top: 60px;  /* Ajustar la distancia desde la parte superior */
+  right: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  max-width: 200px;
+  width: auto;
+}
+
+/* Estilos para los íconos dentro del menú */
+.icon-item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.icon-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Estilos para las imágenes de los íconos dentro del menú */
+.icon-thumbnail {
+  width: 30px; /* Tamaño pequeño para los íconos */
+  height: 30px;
+  border-radius: 5px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+/* Estilo de texto al lado de la imagen */
+.icon-item span {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Estilo para la lista de íconos desbloqueados */
+.claimed-label {
+  color: green;
+  font-weight: bold;
+}
+
+/* Ajustar el botón de reclamo */
+button {
+  cursor: pointer;
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+button:hover:enabled {
+  background-color: #218838;
+}
